@@ -30,7 +30,7 @@ router.use(function (req, res, next) {
 // 登录页面
 router.get("/login", function (req, res, next) {
 	res.render("admin/login.html");
-})
+});
 
 //登录处理操作
 router.post("/check", function (req, res, next) {

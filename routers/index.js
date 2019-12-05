@@ -96,67 +96,67 @@ router.get('/', function (req, res, next) {
 
 // 前台分类页
 
-router.get('/list', function (req, res, next) {
-	const id = req.query.id;
-	// 读取网站配置相关文件
-	const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
-	// 获取到的是一个buffer流，需要转换成json对象
-	const webConfig = JSON.parse(webConfigData.toString());
-
-	// 读取分类数据
-	mysql.query("select * from newstype order by sort desc", function (err, data) {
-		if (err) {
-			return ""
-		} else {
-			// 获取当前分类信息
-			const typeInfo = "";
-			data.forEach(item => {
-				if (item.id == id) {
-					typeInfo = item;
-				}
-			})
-			// 查询分类对应的文章信息
-			mysql.query("select * from news where cid = ? order by id desc", [id], function (err, data2) {
-				if (err) {
-					return "";
-				} else {
-					data2.forEach(item => {
-						item.time = moment(item.time * 1000).format("YYYY-MM-DD HH:mm:ss");
-					})
-					// 获取分类下的热门新闻
-					mysql.query("select * from news where cid = ? order by num desc limit 4", [id], function (err, data3) {
-						if (err) {
-							return "";
-						} else {
-							data3.forEach(item => {
-								item.time = moment(item.time * 1000).format("YYYY-MM-DD HH:mm:ss");
-							})
-							if (req.session.isLogin && req.session.homeUsername && req.session.userAvatar) {
-								var loginUser = req.session.homeUsername;
-								var userAvatar = req.session.userAvatar
-							}
-							// 加载首页
-							res.render("home/list.html", {
-								webConfig: webConfig,
-								typeData: data,
-								typeInfo: typeInfo,
-								newsData: data2,
-								hotData: data3,
-								loginUser: loginUser,
-								userAvatar: userAvatar
-
-
-							});//不需要写后缀
-						}
-					});
-
-				}
-			});
-
-		}
-	});
-
-});
+// router.get('/list', function (req, res, next) {
+// 	const id = req.query.id;
+// 	// 读取网站配置相关文件
+// 	const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
+// 	// 获取到的是一个buffer流，需要转换成json对象
+// 	const webConfig = JSON.parse(webConfigData.toString());
+//
+// 	// 读取分类数据
+// 	mysql.query("select * from newstype order by sort desc", function (err, data) {
+// 		if (err) {
+// 			return ""
+// 		} else {
+// 			// 获取当前分类信息
+// 			const typeInfo = "";
+// 			data.forEach(item => {
+// 				if (item.id == id) {
+// 					typeInfo = item;
+// 				}
+// 			})
+// 			// 查询分类对应的文章信息
+// 			mysql.query("select * from news where cid = ? order by id desc", [id], function (err, data2) {
+// 				if (err) {
+// 					return "";
+// 				} else {
+// 					data2.forEach(item => {
+// 						item.time = moment(item.time * 1000).format("YYYY-MM-DD HH:mm:ss");
+// 					})
+// 					// 获取分类下的热门新闻
+// 					mysql.query("select * from news where cid = ? order by num desc limit 4", [id], function (err, data3) {
+// 						if (err) {
+// 							return "";
+// 						} else {
+// 							data3.forEach(item => {
+// 								item.time = moment(item.time * 1000).format("YYYY-MM-DD HH:mm:ss");
+// 							})
+// 							if (req.session.isLogin && req.session.homeUsername && req.session.userAvatar) {
+// 								var loginUser = req.session.homeUsername;
+// 								var userAvatar = req.session.userAvatar
+// 							}
+// 							// 加载首页
+// 							res.render("home/list.html", {
+// 								webConfig: webConfig,
+// 								typeData: data,
+// 								typeInfo: typeInfo,
+// 								newsData: data2,
+// 								hotData: data3,
+// 								loginUser: loginUser,
+// 								userAvatar: userAvatar
+//
+//
+// 							});//不需要写后缀
+// 						}
+// 					});
+//
+// 				}
+// 			});
+//
+// 		}
+// 	});
+//
+// });
 
 
 

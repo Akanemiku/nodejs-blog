@@ -124,10 +124,10 @@
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#notice" aria-controls="notice" role="tab"
                 data-toggle="tab">网站公告</a></li>
-            <li role="presentation" class="<%- userAvatar ? 'hide' :'' %>"><a href="#centre" aria-controls="centre"
-                role="tab" data-toggle="tab">会员中心</a></li>
             <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">联系站长</a>
-            <li role="presentation"><a href="#netDisk" aria-controls="netDisk" role="tab" data-toggle="tab">网盘系统</a>
+            <li role="presentation" class="<%- userAvatar ? 'hide' :'' %>"><a href="#centre" aria-controls="centre"
+                role="tab" data-toggle="tab">失物招领</a></li>
+            <li role="presentation"><a href="#netDisk" aria-controls="netDisk" role="tab" data-toggle="tab">我的成绩</a>
             </li>
           </ul>
           <div class="tab-content">
@@ -135,38 +135,44 @@
               <ul>
                 <li>
                   <time datetime="2019-08-04">08-04</time>
-                  <a href="" target="_blank">欢迎访问黄绍模博客</a></li>
+                  <a href="" target="_blank">欢迎访问小北博客</a></li>
                 <li>
                   <time datetime="2019-08-04">08-04</time>
-                  <a target="_blank" href="">在这里可以看到前端技术，后端程序，网站内容管理系统等文章，还有我的程序人生！</a></li>
-                <li>
-                  <time datetime="2019-08-04">08-04</time>
-                  <a target="_blank" href="">在这个小工具中最多可以调用五条</a></li>
+                  <a target="_blank" href="">在这里可以看到前端技术，后端程序，网站内容管理系统等文章！</a></li>
               </ul>
-            </div>
-            <div role="tabpanel" class="tab-pane centre" id="centre">
-              <h4>需要登录才能进入会员中心</h4>
-              <p> <a data-toggle="modal" data-target="#loginModal2" class="btn btn-primary">立即登录</a> <a
-                  data-toggle="modal" data-target="#regModal2" class="btn btn-default">现在注册</a> </p>
             </div>
             <div role="tabpanel" class="tab-pane contact" id="contact">
               <h2>Email:<br />
-                <a href="mailto:Aa1237841@163.com" data-toggle="tooltip" data-placement="bottom"
-                  title="admin@ylsat.com">Aa1237841@163.com</a></h2>
+                <a href="mailto:806394913@qq.com" data-toggle="tooltip" data-placement="bottom"
+                   title="806394913@qq.com">806394913@qq.com</a></h2>
+            </div>
+            <div role="tabpanel" class="tab-pane centre" id="centre">
+              <h4>需要登录才能进入失物招领</h4>
+              <p> <a data-toggle="modal" data-target="#loginModal2" class="btn btn-primary">立即登录</a> <a
+                  data-toggle="modal" data-target="#regModal2" class="btn btn-default">现在注册</a></p>
             </div>
             <div role="tabpanel" class="tab-pane  netDisk" id="netDisk">
-              <h4 class="btn btn-primary"><a href="/wp">进入我的个人网盘</a></h4>
+              <h4 class="btn btn-primary"><a href="/wp">进入我的成绩系统</a></h4>
             </div>
           </div>
         </div>
-        <div class="widget widget_search">
-          <form class="navbar-form" action="/Search" method="post">
-            <div class="input-group">
-              <input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字" maxlength="15"
-                autocomplete="off">
-              <span class="input-group-btn">
-                <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-              </span> </div>
+
+
+
+
+<!--        <div class="widget widget_search">-->
+<!--          <form class="navbar-form" action="/Search" method="post">-->
+<!--            <div class="input-group">-->
+<!--              <input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字" maxlength="15"-->
+<!--                autocomplete="off">-->
+<!--              <span class="input-group-btn">-->
+<!--                <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>-->
+<!--              </span> </div>-->
+
+
+
+
+
           </form>
         </div>
       </div>

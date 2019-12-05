@@ -1,13 +1,13 @@
 {
   "name": "y",
   "version": "1.0.0",
-  "description": "这是利用nodejs+express+mysql搭建的一个个人博客项目",
+  "description": "bnuz-app for blog",
   "main": " ",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "黄绍模",
-  "license": "ISC",
+  "author": "bnuz-app",
+  "license": "MIT",
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.2",
@@ -19,12 +19,4 @@
     "ueditor": "^1.2.3"
   },
   "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/huangshaomo/nodejs-express-mysql-bootstrap.git"
-  },
-  "bugs": {
-    "url": "https://github.com/huangshaomo/nodejs-express-mysql-bootstrap/issues"
-  },
-  "homepage": "https://github.com/huangshaomo/nodejs-express-mysql-bootstrap#readme"
 }

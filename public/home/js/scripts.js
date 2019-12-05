@@ -344,7 +344,7 @@ function logout() {
 //Console
 try {
     if (window.console && window.console.log) {
-        console.log("\n欢迎访问黄绍模博客！\n\n在本站可以看到前端技术，后端程序，网站内容管理系统等文章；\n\n还有我的程序人生！！！\n");
-        console.log("\nPOWERED BY WY ALL RIGHTS RESERVED");
+        console.log("\n欢迎访问小北博客！");
+        console.log("\nCopyright ©2019 bnuz-app. All rights reserved.");
     }
 } catch (e) { };
