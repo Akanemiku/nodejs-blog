@@ -1,1 +1,9 @@
-{"title":"小北博客","keywords":"博客","description":"在本站可以看到前端技术，后端程序，网站内容管理系统等文章！","copyright":"2019 bnuz-app. All rights reserved.","record":" 粤ICP备19057348号","count":"1111111","logo":"/upload//15663808689743181.png"}
+{
+  "title": "小北博客",
+  "keywords": "博客",
+  "description": "在本站可以看到前端技术，后端程序，网站内容管理系统等文章！",
+  "copyright": "2019 bnuz-app. All rights reserved.",
+  "record": " 粤ICP备19057348号",
+  "count": "1111111",
+  "logo": "/upload//logo.png"
+}

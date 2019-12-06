@@ -60,7 +60,7 @@ app.use('/',indexRouter);
 app.use('/admin',adminRouter);
 //加载ueditor 模块
 var ueditor = require("ueditor");
- 
+
 //使用模块
 app.use("/public/baidu/ueditors", ueditor(path.join(__dirname, ''), function (req, res, next) {
     // ueditor 客户发起上传图片请求

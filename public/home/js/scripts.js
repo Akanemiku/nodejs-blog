@@ -198,12 +198,12 @@ $(window).scroll(function () {
 })();
 
 /*禁止键盘操作*/
-document.onkeydown = function (event) {
-    var e = event || window.event || arguments.callee.caller.arguments[0];
-    if ((e.keyCode === 123) || (e.ctrlKey) || (e.ctrlKey) && (e.keyCode === 85)) {
-        return false;
-    }
-};
+// document.onkeydown = function (event) {
+//     var e = event || window.event || arguments.callee.caller.arguments[0];
+//     if ((e.keyCode === 123) || (e.ctrlKey) || (e.ctrlKey) && (e.keyCode === 85)) {
+//         return false;
+//     }
+// };
 
 /*文章评论*/
 $(function () {
@@ -300,28 +300,28 @@ $(function () {
       });
     });
     // 用户注册判断
-    $("#reg_btn").click(function () {
-      $.ajax({
-        url: "/reg",
-        type: "post",
-        data: {
-          username: $("#regUsername").val(),
-          password: $("#regPassword").val(),
-          repassword: $("#regRepassword").val(),
-        },
-        success: function (json) {
-          if (json.ok) {
-            $('#regModal').modal('toggle');
-            window.location.reload();
-          }
-          alert(json.msg);
-
-        },
-        error: function (err) {
-          console.log(err);
-        }
-      });
-    });
+    // $("#reg_btn").click(function () {
+    //   $.ajax({
+    //     url: "/reg",
+    //     type: "post",
+    //     data: {
+    //       username: $("#regUsername").val(),
+    //       password: $("#regPassword").val(),
+    //       repassword: $("#regRepassword").val(),
+    //     },
+    //     success: function (json) {
+    //       if (json.ok) {
+    //         $('#regModal').modal('toggle');
+    //         window.location.reload();
+    //       }
+    //       alert(json.msg);
+    //
+    //     },
+    //     error: function (err) {
+    //       console.log(err);
+    //     }
+    //   });
+    // });
   });
 // 退出登录
 function logout() {
