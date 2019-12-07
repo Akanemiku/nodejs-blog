@@ -220,7 +220,7 @@ $(function () {
             var str = '<a data-toggle="modal" data-target="#loginModal2">登录?</a>';
             promptText.html("请登录后再进行评论" + `  ` + str);
             commentButton.attr('disabled', true);
-            commentButton.addClass('disabled')
+            commentButton.addClass('disabled');
             return false;
         } else {
             if (commentContent.val() === '') {
@@ -268,7 +268,7 @@ function replace_em(str) {
     str = str.replace(/\[em_([0-9]*)\]/g, '<img src="/public/home/images/arclist/$1.gif" border="0" />');
     return str;
 }
-// 用户登录注册
+// 用户登录
 $(function () {
     $('#isLogining').val()
     $("#login_btn").click(function () {
@@ -299,29 +299,6 @@ $(function () {
         }
       });
     });
-    // 用户注册判断
-    // $("#reg_btn").click(function () {
-    //   $.ajax({
-    //     url: "/reg",
-    //     type: "post",
-    //     data: {
-    //       username: $("#regUsername").val(),
-    //       password: $("#regPassword").val(),
-    //       repassword: $("#regRepassword").val(),
-    //     },
-    //     success: function (json) {
-    //       if (json.ok) {
-    //         $('#regModal').modal('toggle');
-    //         window.location.reload();
-    //       }
-    //       alert(json.msg);
-    //
-    //     },
-    //     error: function (err) {
-    //       console.log(err);
-    //     }
-    //   });
-    // });
   });
 // 退出登录
 function logout() {

@@ -41,11 +41,14 @@ router.post("/check", function (req, res, next) {
 	// 判断用户是否输入
 	if (username) {
 		if (password) {
-			// 加密密码
-			let md5 = crypto.createHash('md5');
-			password = md5.update(password).digest('hex');
+			console.log(username+" "+password);
+			// 对密码进行MD5加密
+			// let md5 = crypto.createHash('md5');
+			// password = md5.update(password).digest('hex');
+
 			// 判断数据库中是否存在该用户
 			mysql.query("select * from admin where username = ? and password = ?", [username, password], function (err, data) {
+				console.log("--"+data[0].username+" "+data[0].password+"--");
 				if (err) {
 					return "";
 				} else {
@@ -70,7 +73,7 @@ router.post("/check", function (req, res, next) {
 	} else {
 		res.send("<script>alert('请登录');location.href = '/admin/login';</script>");
 	}
-})
+});
 
 // 退出登录
 router.get("/logout", function (req, res, next) {
