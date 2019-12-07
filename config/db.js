@@ -9,9 +9,8 @@ let connect = mysql.createConnection({
     user:"akane",
     password:"6458",
     database:"newblog",
-    port: "3306"
-    
-
+    port: "3306",
+    useConnectionPooling: true
 });
 
 // 开始连接数据库
