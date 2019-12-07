@@ -30,6 +30,18 @@ const path = require('path');
 // 引入图片上传方法
 // const myuploads = require("../common/myuploads");
 
+
+router.get('/card',function (req, res, next){
+	const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
+	// 获取到的是一个buffer流，需要转换成json对象
+	const webConfig = JSON.parse(webConfigData.toString());
+	res.render("card/findcard.html",{
+		webConfig: webConfig
+	});
+});
+
+
+
 // 前台首页
 router.get('/', function (req, res, next) {
     // console.log(req.session);
