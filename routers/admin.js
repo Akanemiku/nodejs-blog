@@ -43,8 +43,8 @@ router.post("/check", function (req, res, next) {
 		if (password) {
 			console.log(username+" "+password);
 			// 对密码进行MD5加密
-			// let md5 = crypto.createHash('md5');
-			// password = md5.update(password).digest('hex');
+			let md5 = crypto.createHash('md5');
+			password = md5.update(password).digest('hex');
 
 			// 判断数据库中是否存在该用户
 			mysql.query("select * from admin where username = ? and password = ?", [username, password], function (err, data) {
