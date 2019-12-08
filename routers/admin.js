@@ -54,13 +54,17 @@ router.post("/check", function (req, res, next) {
 				} else {
 					// 如果在数据库中查询到对应的数据
 					if (data[0]) {
-						// 再次比对数据库中的数据与输入的数据
-						if(data[0].username == username && data[0].password == password){
-						req.session.HsmMessageIsAdmin = true;
-						req.session.HsmMessageUsername = data[0].username;
-						res.send("<script>location.href = '/admin';</script>");
+						if(data[0].status == '0001'){
+							res.send("<script>alert('黑名单用户,请联系管理员！');location.href = '/admin/login';</script>");
 						}else{
-							res.send("<script>alert('登录失败');location.href = '/admin/login';</script>");
+							// 再次比对数据库中的数据与输入的数据
+							if(data[0].username == username && data[0].password == password){
+								req.session.HsmMessageIsAdmin = true;
+								req.session.HsmMessageUsername = data[0].username;
+								res.send("<script>location.href = '/admin';</script>");
+							}else{
+								res.send("<script>alert('登录失败');location.href = '/admin/login';</script>");
+							}
 						}
 					} else {
 						res.send("<script>alert('登录失败');location.href = '/admin/login';</script>");
