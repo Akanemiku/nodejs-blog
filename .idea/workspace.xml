@@ -2,47 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71fa72ef-fb4a-4036-936f-043bf8d6f964" name="Default Changelist" comment="update readme">
-      <change afterPath="$PROJECT_DIR$/images/ueditor/1203507987394727936.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ueditor/1203516447129735168.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ueditor/1203517032889454592.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ueditor/1203563130374983680.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ueditor/1203563202856751104.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ueditor/1203563819612377088.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ueditor/1203563861547028480.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757732636017921.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757764144461937.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757764973076106.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757869620982520.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757870610764603.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757878105225841.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/1575788137361983.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757885978627593.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/1575788719972315.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757889009108329.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757890666407535.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757895954749965.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/news/15757897897627308.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/slider/15757905587377078.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/slider/15757905678922459.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/slider/15757923236153768.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/slider/15757923418516611.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/slider/15757924546516206.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/login/css/font-awesome-4.6.3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/login/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/login/css/twitter-bootstrap-3.4.0.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/login/img/bg-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/login/img/bg-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/login/js/jquery-3.4.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1162556256720916480.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1162557067060449280.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1162557067517628416.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1162557067542794240.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1162585035778428928.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1162585138958307328.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1162587006199533568.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1162587006237282304.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1164174421179633664.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1164174421469040640.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1164174421863305216.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1165533029326786560.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1165533147849428992.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1165629212623769600.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ueditor/1165629701063053312.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/_append-field@1.0.0@append-field/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/_append-field@1.0.0@append-field/.npmignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/_append-field@1.0.0@append-field/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/_append-field@1.0.0@append-field/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/_append-field@1.0.0@append-field/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/_append-field@1.0.0@append-field/README.md" afterDir="false" />
@@ -971,35 +937,17 @@
       <change beforePath="$PROJECT_DIR$/node_modules/ueditor/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ueditor/lib/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/ueditor/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ueditor/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/ueditor/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ueditor/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660095966491280.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660096053509127.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660096230569987.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660097106571975.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660099884869551.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660101084949121.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660101818704110.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660116342019928.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/1566011740089621.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660118676501995.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660119368572602.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660165907412860.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660168810037016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15660170683431998.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15663878481528730.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15663927231448181.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/news/15665247778932046.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/slider/15658649465529105.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/slider/15658651143502368.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/slider/15658651607047453.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/slider/15658873219895596.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/slider/15665252358059753.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/admin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/comment/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/comment/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/news/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/news/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/newstype/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/newstype/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/slider/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/slider/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/user/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/css/component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/css/demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/css/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/img/demo-1-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/img/login_ico.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/js/EasePack.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/js/TweenLite.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/js/demo-1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/js/html5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/js/rAF.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -1013,31 +961,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/login/img/demo-1-bg.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/admin/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+            <state relative-caret-position="277">
+              <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#1;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/login/css/component.css">
+        <entry file="file://$PROJECT_DIR$/public/login/css/login.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-144" />
+            <state relative-caret-position="219">
+              <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/home/css/bootstrap.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/login/css/demo.css">
+        <entry file="file://$PROJECT_DIR$/public/baidu/third-party/highcharts/highcharts.src.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="302">
+              <caret line="9381" column="36" selection-start-line="9381" selection-start-column="36" selection-end-line="9381" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -1105,7 +1062,6 @@
         <option value="$PROJECT_DIR$/views/home/common/head.html" />
         <option value="$PROJECT_DIR$/routers/index.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/views/admin/login.html" />
         <option value="$PROJECT_DIR$/routers/admin.js" />
         <option value="$PROJECT_DIR$/views/admin/index.html" />
         <option value="$PROJECT_DIR$/views/admin/admin/index.html" />
@@ -1114,6 +1070,8 @@
         <option value="$PROJECT_DIR$/views/admin/newstype/index.html" />
         <option value="$PROJECT_DIR$/views/admin/slider/index.html" />
         <option value="$PROJECT_DIR$/views/admin/user/index.html" />
+        <option value="$PROJECT_DIR$/views/admin/login.html" />
+        <option value="$PROJECT_DIR$/public/login/css/login.css" />
       </list>
     </option>
   </component>
@@ -1264,7 +1222,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/npm/node_modules/cnpm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/login/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -1275,6 +1233,12 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Web\nodejs-blog\public\login\js" />
+      <recent name="D:\Web\nodejs-blog\public\login\css" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1315,7 +1279,7 @@
       <workItem from="1575637766565" duration="9687000" />
       <workItem from="1575684319581" duration="8643000" />
       <workItem from="1575767397295" duration="12687000" />
-      <workItem from="1576109035476" duration="2660000" />
+      <workItem from="1576109035476" duration="5298000" />
     </task>
     <task id="LOCAL-00001" summary="-init-">
       <created>1574508310119</created>
@@ -1366,11 +1330,18 @@
       <option name="project" value="LOCAL" />
       <updated>1575786387823</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix bugs in admin">
+      <created>1576111787706</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576111787706</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42842000" />
+    <option name="totallyTimeSpent" value="45480000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1385,12 +1356,12 @@
     <frame x="-7" y="-7" width="1488" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17768595" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17768595" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297587" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34986594" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34986594" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27882037" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1456,34 +1427,10 @@
     <MESSAGE value="update readme" />
     <MESSAGE value="update login" />
     <MESSAGE value="update admin index" />
-    <option name="LAST_COMMIT_MESSAGE" value="update admin index" />
+    <MESSAGE value="fix bugs in admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bugs in admin" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/admin/images/tmbg-white.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/admin/images/welcome.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routers/admin/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="110" column="50" selection-start-line="110" selection-start-column="50" selection-end-line="110" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/card/haihua2.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload/slider/15757905587377078.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload/news/1575788137361983.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1645,9 +1592,6 @@
         <state relative-caret-position="-144" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/login/img/login_ico.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/login/js/demo-1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4125" />
@@ -1706,18 +1650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/login/css/component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/login/css/normalize.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1727,8 +1659,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/login/css/demo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="171">
+          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login/css/component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login/img/login_ico.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login/css/twitter-bootstrap-3.4.0.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login/css/font-awesome-4.6.3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="41" lean-forward="true" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login/css/font-awesome-4.6.3.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login/js/jquery-3.4.1.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#1;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/home/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/baidu/third-party/highcharts/highcharts.src.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="9381" column="36" selection-start-line="9381" selection-start-column="36" selection-end-line="9381" selection-end-column="36" />
         </state>
       </provider>
     </entry>
