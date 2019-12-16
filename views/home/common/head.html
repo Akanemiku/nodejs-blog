@@ -5,7 +5,6 @@
 
 
                 <ul class="site-nav topmenu">
-                    <!-- <li><a href="tags.html">标签云</a></li> -->
                     <li class="dropdown <%- loginUser ? '' : 'hide' %>"><a class="dropdown-toggle"
                                                                            data-toggle="dropdown" role="button"
                                                                            aria-haspopup="true" aria-expanded="false"
@@ -14,7 +13,7 @@
                         <ul class="dropdown-menu header-topbar-dropdown-menu">
                             <li><a data-toggle="modal" data-target="#WeChat" rel="nofollow"> 个人中心</a></li>
                             <li><a data-toggle="modal" data-target="#forgetModal">修改密码</a></li>
-                            <li><a onclick="logout(`<%= newsData.id %>`)"> 退出登录</a></li>
+                            <li><a onclick="logout()"> 退出登录</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -31,13 +30,6 @@
                 <div class="collapse navbar-collapse" id="header-navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="hidden-index active"><a data-cont="小北首页" href="/">首页</a></li>
-
-
-<!--                        导航栏选项-->
-
-<!--                        <% typeData.forEach(item=>{%>-->
-<!--                        <li class="hidden-index "><a href="/list?id=<%= item.id%>"><%= item.name%></a></li>-->
-<!--                        <% }) %>-->
 
 
                     </ul>
@@ -57,7 +49,7 @@
                         <ul class="dropdown-menu header-topbar-dropdown-menu">
                             <li><a data-toggle="modal" data-target="#WeChat" rel="nofollow"> 个人中心</a></li>
                             <li><a data-toggle="modal" data-target="#forgetModal">修改密码</a></li>
-                            <li><a onclick="logout(`<%= newsData.id %>`)"> 退出登录</a></li>
+                            <li><a onclick="logout()"> 退出登录</a></li>
                         </ul>
                     </li>
                 </ul>
