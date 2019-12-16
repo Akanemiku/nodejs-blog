@@ -16,10 +16,9 @@
     <link rel="stylesheet" type="text/css" href="public/home/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/home/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="public/home/css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="public/card/css/flatpickr.css">
     <link rel="apple-touch-icon-precomposed" href="public/home/images/icon/icon.png">
     <link rel="shortcut icon" href="public/home/images/icon/favicon.ico">
-    <link rel="stylesheet" href="public/home/css/pagination.css" />
-
     <script src="public/home/js/jquery-2.1.4.min.js"></script>
     <script src="public/home/js/nprogress.js"></script>
     <script src="public/home/js/jquery.lazyload.min.js"></script>
@@ -29,76 +28,6 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
     <style type="text/css">
-        .locationlabel {
-            margin: 10px;
-            padding: 8px;
-            background: #54d1f4;
-            /*color: whitesmoke;*/
-            margin: 5px;
-            border: 1px solid;
-            border-radius: 5px;
-            display: inline-block;
-            font-size: small;
-        }
-
-        .schoollabel {
-            margin: 10px;
-            padding: 8px;
-            background: #b8f3a5;
-            /*color: whitesmoke;*/
-            margin: 5px;
-            border: 1px solid;
-            border-radius: 5px;
-            display: inline-block;
-            font-size: small;
-        }
-
-        .deleteImg {
-            width: 12px;
-            height: 12px;
-            margin-left: 10px;
-        }
-
-        .deleteAllImg {
-            width: 12px;
-            height: 12px;
-        }
-
-        .inspect {
-            width: 20px;
-            height: 20px;
-            float: right;
-            margin-left: 20px;
-        }
-
-        .list-group-item {
-            margin-bottom: 10px;
-            color: #000;
-            border: solid black;
-            margin-top: 5px;
-        }
-
-        .setPageDiv {
-            width: 100%;
-            margin: auto;
-            /*margin-bottom: 91px;*/
-            /*margin-top: 37px;*/
-        }
-
-        #pagination {
-            margin: 0 auto;
-            /*margin-left: 100px;*/
-        }
-
-        #search{
-            border: 3px solid black;
-        }
-
-        .searchImg{
-            width: 36px;
-            height: 36px;
-            /*margin-left: 6px;*/
-        }
 
     </style>
 </head>
@@ -190,60 +119,65 @@
 
                 <div class="col-md-3 column" style="padding: 10px;">
                     <div style="position: fixed;height: 100%;width: 24%">
-                        <div class="widget" style=";margin: 0 auto;width: 100%;height: 97%;padding:30px;">
-                                <div class="col-sm-12" style="white-space:nowrap">
-                                    <input type="text"  id="search" style="width: 80%;height: 100%;padding: 8px;margin-bottom: 15px;margin-left: 6px;"
-                                    onkeypress="onKeyPress(event);"/>
-                                    <button id="searchText" style="background-color: white;border: none;"><img src="/public/card/icon/search.png" class="searchImg"/></button>
-
-                                    <!--<button style="height: 100%;">搜索</button>-->
-                                    <!--<span class="input-group-addon" style="height: 100%;">-->
-                                    <!--<i class="glyphicon glyphicon-search"></i>-->
-                                    <!--</span><br>-->
+                        <div class="widget" style=";margin: 0 auto;width: 100%;height: 98%">
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane centre active" id="centre">
+                                    <form class="form-horizontal" action="/publish_card" method="post" role="form"
+                                          style="margin: 20px;font-size: 18px;">
+                                        <div class="form-group">
+                                            <label for="stuno" class="col-sm-3 control-label">学号</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="stuno" name="stu_no"
+                                                       placeholder="请输入学号">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="stuname" class="col-sm-3 control-label">姓名</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="stuname"
+                                                       name="stu_name" placeholder="请输入名字">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="selectSchool" class="col-sm-3 control-label">院系</label>
+                                            <div class="col-sm-9">
+                                                <select class="selectpicker" id="selectSchool"
+                                                        name="stu_school"></select><br>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="selectLocation" class="col-sm-3 control-label">地点</label>
+                                            <div class="col-sm-9">
+                                                <select class="selectpicker" id="selectLocation"
+                                                        name="lost_location"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="selectTime" class="col-sm-3 control-label" style="padding-top: 0px"><img
+                                                    src="/public/card/icon/date.png"></label>
+                                            <div class="col-sm-8">
+                                                <input name="publish_time" class="flatpickr form-control pick"
+                                                       id="selectTime">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="text-align: center;">
+                                            <button type="submit" class="button button-pill  button-primary"
+                                                    style="width: 80%;" id="publish">发布
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
-                            <form class="form-horizontal" style="margin: 20px;font-size: 18px;">
-
-                                <div class="form-group">
-                                    <div class="col-sm-9" style="white-space:nowrap">
-                                        <select class="selectpicker" id="selectSchool" name="stu_school"></select>
-                                        <!--<button type="button" class="btn btn-default" id="deleteAllSchool" style="margin-left: 8%"><img src="/public/card/icon/delete_all.png" class="deleteAllImg"></button>-->
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-9" style="white-space:nowrap">
-                                        <select class="selectpicker" id="selectLocation" name="lost_location"></select>
-                                        <button type="button" class="btn btn-default" id="deleteAllLabel"
-                                                style="margin-left: 8%"><img src="/public/card/icon/delete_all.png"
-                                                                             class="deleteAllImg"></button>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="mylabel" style="height: 13%">
-                                <!--<span class="locationlabel">-->
-                                <!--<span>木铎楼</span>-->
-                                <!--<a href="#" style="color: white;" class="delete"><img-->
-                                <!--src='/public/card/icon/delete.png' class='deleteImg'></a>-->
-                                <!--</span>-->
-                                <!--<span class="schoollabel">-->
-                                <!--<span>信息技术学院</span>-->
-                                <!--<a href="#" style="color: white;" class="delete"><img-->
-                                <!--src='/public/card/icon/delete.png' class='deleteImg'></a>-->
-                                <!--</span>-->
                             </div>
-                            <ul class='list-group'>
-                                <!--<a href="#">-->
-                                    <!--<div class='list-group-item' name="xh1701040120">-->
-                                        <!--1701040120<br>-->
-                                        <!--叶威强<img src="/public/card/icon/inspect.png" class="inspect"/><span-->
-                                            <!--style="float: right;font-size: larger">励耘楼</span><br>-->
-                                        <!--信息技术学院<br>-->
+                            <!--</div>-->
 
-                                    <!--</div>-->
-                                <!--</a>-->
-
-                            </ul>
-                            <div class="setPageDiv">
-                                <div class="Pagination" id="pagination"></div>
+                            <!--<div class="widget widget_hot" style=";margin-top: 10px;width: 100%;height: 66%;">-->
+                            <div style="width: 100%;height: 40%;">
+                                <img src="public/card/images/other.jpg" id="buildingImg"
+                                     style="width: 100%;height: 100%">
+                            </div>
+                            <div style="width: 100%;height: 40%;">
+                                <p class="buildingName" style="font-size: 20px;text-align: center">北京师范大学珠海分校</p>
+                                <p class="buildingDescribe" style="font-size: 15px;"></p>
                             </div>
                         </div>
                     </div>
@@ -270,13 +204,9 @@
 <script src="public/home/js/uploadStyle.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-<script src="public/home/js/jquery.pagination.js"></script>
+<script src="public/card/js/flatpickr.min.js"></script>
 
 <script type="text/javascript">
-    var pageNum = 4;
-    var searchSchoolText = [];
-    var searchLocationText = [];
-
     var locations = [
         "励耘楼", "乐育楼", "元白楼", "弘文楼", "木铎楼", "金声楼", "丽泽楼", "励教楼", "南曦园",
         "图书馆", "海华苑", "京华苑", "燕华苑", "粤华苑", "文华苑", "田径场", "国交足球场", "体育馆",
@@ -347,83 +277,30 @@
         $("#selectLocation").append("<option value='" + value + "'>" + value + "</option>")
     }
 
-    // $.get("/getcardlist", function (data, status) {
-    //     console.log(data);
-    //     console.log(typeof(data));
-    //     var result = JSON.parse(data);
-    //     console.log(result)
-    //     // alert(result)
-    //     var newElement = "";
-    //     $.each(result, function (i, val) {
-    //         // console.log(i)
-    //         // console.log(val.stu_no)
-    //         // console.log(val.stu_name)
-    //         newElement += "<a href='#'>" +
-    //             "<div class='list-group-item' name='xh" + val.stu_no + "'>" +
-    //             val.stu_no + "<br>" +
-    //             val.stu_name + "<img src='/public/card/icon/inspect.png' class='inspect'/><span style='float: right;font-size: larger'>励耘楼</span><br>" +
-    //             val.stu_school + "<br>" +
-    //             "</div></a>";
-    //
-    //     });
-    //     $('.list-group').append(newElement)
-    // });
-
+    var time = new Date();
     $(document).ready(function () {
 
-        $('.setPageDiv').change(function () {
+        time.getFullYear(); //获取完整的年份(4位,1970-???)
+        time.getMonth(); //获取当前月份(0-11,0代表1月)
+        time.getDate(); //获取当前日(1-31)
 
-            getMsg(parseInt($(this).val()))
+        $('#selectTime').flatpickr({
+            format: 'YYYY-MM-DD',
+            // locale: moment.locale('zh-cn'),
+            // defaultDate: "1990-1-1"
+            defaultDate: time.getFullYear() + "-" + (time.getMonth()+1) + "-" + time.getDate()
+
         });
 
-
-        getMsg(pageNum);
-
-
-        $(".delete").click(function () {
-            $(this).parent().remove()
-        });
 
         //下拉框选择地点后自动更换图片
         $('#selectLocation').change(function () {
-            var locationVal = $("#selectLocation").val();
-            if(searchLocationText.indexOf(locationVal) === -1){
-                addLocationLabel($("#selectLocation").val());
-                searchLocationText.push(locationVal);
-                getMsg(pageNum);
-            }else{
-                alert("你已选择" + locationVal + "!");
-            }
-
+            showPhoto($("#selectLocation").val())
         });
 
-        $('#selectSchool').change(function () {
-            var schoolVal = $("#selectSchool").val();
-            if(searchSchoolText.indexOf(schoolVal) === -1){
-                $(".mylabel").append("<span class='schoollabel'><span>" + schoolVal + "</span><a href='#' style='color: white;' class='delete'><img src='/public/card/icon/delete.png' class='deleteImg'></a></span>");
-                $(".delete").click(function () {
-                    $(this).parent().remove();
-                    searchSchoolText.remove(schoolVal)
-                    getMsg(pageNum);
-                });
-                searchSchoolText.push(schoolVal);
-                getMsg(pageNum);
-            }else{
-                alert("你已选择" + schoolVal + "!");
-            }
-
+        $('#submit').click(function () {
+            console.log($("#selectLocation").val())
         });
-
-        $("#deleteAllLabel").click(function () {
-            searchLocationText = [];
-            searchSchoolText = [];
-            $('.mylabel').empty('.schoollabel');
-            getMsg(pageNum);
-        });
-
-        // $('#submit').click(function () {
-        //     console.log($("#selectLocation").val())
-        // });
 
         $("#JS_exprMap").maphilight({
             strokeColor: "666666",
@@ -440,13 +317,6 @@
             $(this).click(function () {
                 //点击地图上的建筑物更换下拉框的地址
                 $('#selectLocation').selectpicker('val', (name));
-                if(searchLocationText.indexOf(name) === -1){
-                    addLocationLabel(name);
-                    searchLocationText.push(name)
-                    getMsg(pageNum);
-                }else{
-                    alert("你已选择" + name + "!");
-                }
             });
             $(this).mouseenter(function (e) {
                 // index_num = $(this).index();
@@ -454,94 +324,131 @@
                 $('.buildingName').html(name);
                 $('.buildingDescribe').html(buildingDescribe[name]);
 
+                showPhoto(name, firstcoord);
 
 
             });
         });
 
-        function addLocationLabel(name) {
-            $(".mylabel").append("<span class='locationlabel'><span>" + name + "</span><a href='#' style='color: white;' class='delete'><img src='/public/card/icon/delete.png' class='deleteImg'></a></span>");
-            $(".delete").click(function () {
-                $(this).parent().remove();
-                searchLocationText.remove(name)
-                getMsg(pageNum);
-            });
-        }
 
-        $('#searchText').click(function () {
-            getMsg(pageNum);
-        })
-
-
-
-
+        //提交表单
+        // $('#publish').click(function () {
+        //     // alert($("#stuno").val() + " " + $("#stuname").val() + " " + $("#selectSchool").val() + " " + $("#selectLocation").val())
+        //     $.post("/publish_card",
+        //         {
+        //             stu_no: $("#stuno").val(),
+        //             stu_name: $("#stuname").val(),
+        //             stu_school: $("#selectSchool").val(),
+        //             lost_location: $("#selectLocation").val()
+        //         }, function (res) {
+        //             console.log(res)
+        //         })
+        // })
     });
 
-    function getMsg(num) {
-        $.ajax({
-            url: '/getcardlist',
-            type: 'GET',
-            data: {
-                search: $('#search').val(),
-                searchSchool: searchSchoolText,
-                searchLocation: searchLocationText
-            },
-            dataType: 'json',
-            success: function (data) {
-                // console.log(data.list);
-                // console.log(typeof(data.list))
-                //1.计算分页数量
-                var showNum = num;
-                var dataL = data.list.length;
-                var pageNum = Math.ceil(dataL / showNum);
-                $('.Pagination').pagination(pageNum, {
-                    num_edge_entries: 1, //边缘页数
-                    num_display_entries: 4, //主体页数
-                    items_per_page: 1, //每页显示1项
-                    prev_text: "上一页",
-                    next_text: "下一页",
-                    callback: function (index) {
-                        var newElement = "";
-                        $('.list-group').empty();
+    function showPhoto(name, firstcoord) {
+        switch (name) {
+            case "体育馆":
+                $('#buildingImg').attr("src", "public/card/images/gym.jpg")
+                break;
 
-                        // console.log(showNum * index + '~' + parseInt(showNum * index) + parseInt(showNum));
-                        // console.log("index:" + index)
-                        for (var i = showNum * index; i < showNum * index + showNum; i++) {
-                            // console.log(i);
-                            if (i < dataL) {
+            case "元白楼":
+                $('#buildingImg').attr("src", "public/card/images/yuanbai.jpg")
+                break;
 
-                                newElement += "<a href='#'>" +
-                                    "<div class='list-group-item' name='xh" + data.list[i].stu_no + "'>" +
-                                    data.list[i].stu_no + "<br>" +
-                                    data.list[i].stu_name + "<img src='/public/card/icon/inspect.png' class='inspect'/><span style='float: right;font-size: larger'>" + data.list[i].lost_location + "</span><br>" +
-                                    data.list[i].stu_school + "<br>" +
-                                    "</div></a>";
+            case "游泳池":
+                $('#buildingImg').attr("src", "public/card/images/swimmingpool.jpg")
+                break;
 
-                            }
-                        }
-                        $('.list-group').append(newElement)
+            case "文华苑":
+                $('#buildingImg').attr("src", "public/card/images/wenhua.jpg")
+                break;
 
-                    }
-                })
+            case "木铎楼":
+                $('#buildingImg').attr("src", "public/card/images/muduo.gif")
+                break;
 
-            }
-        })
-    }
+            case "励耘楼":
+                $('#buildingImg').attr("src", "public/card/images/liyun.jpg")
+                break;
 
+            case "京华苑":
+                $('#buildingImg').attr("src", "public/card/images/jinghua.jpg")
+                break;
 
-    /* 搜索框  */
-    function onKeyPress(event) {
-        if (event.keyCode == 13) { // enter 键
-            getMsg(pageNum);
+            case "图书馆":
+                $('#buildingImg').attr("src", "public/card/images/library.jpg")
+                break;
+            case "海华苑":
+                // console.log(firstcoord)
+                if (firstcoord == 476) {
+                    $('#buildingImg').attr("src", "public/card/images/haihua.jpg")
+                } else {
+                    $('#buildingImg').attr("src", "public/card/images/haihua2.jpg")
+                }
+                break;
+
+            case "弘文楼":
+                $('#buildingImg').attr("src", "public/card/images/hongwen.jpg")
+                break;
+
+            case "金声楼":
+                $('#buildingImg').attr("src", "public/card/images/jinsheng.jpg")
+                break;
+
+            case "丽泽楼":
+                $('#buildingImg').attr("src", "public/card/images/lize.jpg")
+                break;
+
+            case "学一食堂":
+                $('#buildingImg').attr("src", "public/card/images/xueyi.jpg")
+                break;
+
+            case "学二食堂":
+                $('#buildingImg').attr("src", "public/card/images/xueer.jpg")
+                break;
+
+            case "学三食堂":
+                $('#buildingImg').attr("src", "public/card/images/xuesan.jpg")
+                break;
+
+            case "田径场":
+                $('#buildingImg').attr("src", "public/card/images/tianjingchang.jpg")
+                break;
+
+            case "燕华苑":
+                $('#buildingImg').attr("src", "public/card/images/yanhua.jpg")
+                break;
+
+            case "会同街":
+                $('#buildingImg').attr("src", "public/card/images/huitong.gif")
+                break;
+
+            case "励教楼":
+                $('#buildingImg').attr("src", "public/card/images/lijiao.jpg")
+                break;
+
+            case "南曦园":
+                $('#buildingImg').attr("src", "public/card/images/nanxi.jpg")
+                break;
+
+            case "京师家园":
+                $('#buildingImg').attr("src", "public/card/images/jingshi.jpg")
+                break;
+
+            case "乐育楼":
+                $('#buildingImg').attr("src", "public/card/images/leyu.jpg")
+                break;
+
+            case "粤华苑":
+                $('#buildingImg').attr("src", "public/card/images/yuehua.jpg")
+                break;
+
+            case "国交足球场":
+                $('#buildingImg').attr("src", "public/card/images/guojiaozuqiuchang.jpg")
+                break;
         }
     }
-
-    Array.prototype.remove = function(val) {
-        var index = this.indexOf(val);
-        if (index > -1) {
-            this.splice(index, 1);
-        }
-    };
 
 </script>
 </html>

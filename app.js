@@ -53,11 +53,17 @@ const indexRouter = require("./routers/index");
 
 //导入后台的路由文件
 const adminRouter = require("./routers/admin");
+
+//导入card路由
+const cardRouter = require("./routers/card");
+
 // 使用前台的路由
 // 参数1：匹配的路由规则
 // 参数2:请求路由规则
 app.use('/',indexRouter);
 app.use('/admin',adminRouter);
+app.use('/',cardRouter);
+
 //加载ueditor 模块
 var ueditor = require("ueditor");
 

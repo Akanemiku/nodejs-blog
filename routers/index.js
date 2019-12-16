@@ -31,13 +31,22 @@ const path = require('path');
 // const myuploads = require("../common/myuploads");
 
 
-router.get('/card',function (req, res, next){
+router.get('/publishcard',function (req, res, next){
 	const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
 	// 获取到的是一个buffer流，需要转换成json对象
 	const webConfig = JSON.parse(webConfigData.toString());
-	res.render("card/findcard.html",{
+	res.render("card/publishcard.html",{
 		webConfig: webConfig
 	});
+});
+
+router.get('/findcard',function (req, res, next){
+    const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
+    // 获取到的是一个buffer流，需要转换成json对象
+    const webConfig = JSON.parse(webConfigData.toString());
+    res.render("card/findcard.html",{
+        webConfig: webConfig
+    });
 });
 
 

@@ -45,15 +45,15 @@ router.get("/", function (req, res, next) {
                     // console.log(data);
                     // 格式化时间
                     data.forEach(item => {
-                        item.time = moment(item.time * 1000).format("YYYY-MM-DD HH:mm:ss");;
-                    })
+                        item.time = moment(item.time * 1000).format("YYYY-MM-DD HH:mm:ss");
+                    });
                     //加载页面
-                    res.render("admin/comment/index.html", 
-                    {
-                        data: data,
-                        search: search,
-                        show:fpage.show
-                    }
+                    res.render("admin/comment/index.html",
+                        {
+                            data: data,
+                            search: search,
+                            show: fpage.show
+                        }
                     );
                 }
             });
@@ -62,27 +62,27 @@ router.get("/", function (req, res, next) {
     });
 });
 
-    // 无刷新修改状态
+// 无刷新修改状态
 
-    router.get("/ajax_status", function (req, res, next) {
-        // 接受数据
-        let { id, status } = req.query;
+router.get("/ajax_status", function (req, res, next) {
+    // 接受数据
+    let {id, status} = req.query;
 
-        // 执行sql语句，修改数据库中的数据
-        mysql.query("update comment set status = ? where id = ?", [status, id], function (err, data) {
-            if (err) {
-                console.log(err);
-                return "";
+    // 执行sql语句，修改数据库中的数据
+    mysql.query("update comment set status = ? where id = ?", [status, id], function (err, data) {
+        if (err) {
+            console.log(err);
+            return "";
+        } else {
+            if (data.affectedRows == 1) {
+                res.send("1");
             } else {
-                if (data.affectedRows == 1) {
-                    res.send("1");
-                } else {
-                    res.send("0");
-                }
+                res.send("0");
             }
-        });
-
-
+        }
     });
-    // 抛出路由
-    module.exports = router;
+
+
+});
+// 抛出路由
+module.exports = router;
