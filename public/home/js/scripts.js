@@ -157,13 +157,13 @@ $(window).scroll(function () {
 });
 
 //进入找卡页面
-$('#find').click(function(){
-    window.location.href="/findcard";
+$('#find').click(function () {
+    window.location.href = "/findcard";
 });
 
 //进入发布丢卡信息页面
-$('#lost').click(function(){
-    window.location.href="/publishcard";
+$('#lost').click(function () {
+    window.location.href = "/publishcard";
 });
 
 //禁止右键菜单
@@ -286,26 +286,29 @@ $(function () {
     $('#isLogining').val()
     $("#login_btn").click(function () {
         $.ajax({
-            url: '/login',
+            url: 'http://47.98.154.117/doLogin',
             type: 'post',
             data: {
                 act: 'login',
                 username: $("#username").val(),
                 password: $("#password").val()
             },
-            success: function (json) {
-                if (json.ok) {
-                    alert(json.username + "" + json.msg);
-                } else {
-                    alert(json.msg);
-                }
-
-                if (json.username) {
-                    $('#loginBox').addClass('hide');
-                    $('#widget').removeClass('hide');
-                    window.location.reload();
-                }
-                $('#loginModal').modal('toggle');
+            success: function (data, status) {
+                console.log(data)
+                console.log(data.name)
+                alert(data.success)
+                // if (json.ok) {
+                //     alert(json.username + "" + json.msg);
+                // } else {
+                //     alert(json.msg);
+                // }
+                //
+                // if (json.username) {
+                //     $('#loginBox').addClass('hide');
+                //     $('#widget').removeClass('hide');
+                //     window.location.reload();
+                // }
+                // $('#loginModal').modal('toggle');
             },
             error: function (err) {
                 console.log(err);

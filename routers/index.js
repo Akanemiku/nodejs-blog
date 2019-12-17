@@ -63,6 +63,10 @@ router.get('/findcard',function (req, res, next){
     });
 });
 
+router.get('/flask4',function (req, res, next){
+    res.render("card/flask4.html");
+});
+
 
 
 // 前台首页

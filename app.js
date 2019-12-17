@@ -47,6 +47,15 @@ app.use("/public",express.static(__dirname+"/public"));
 app.use("/upload",express.static(__dirname+"/upload"));
 app.use("/images",express.static(__dirname+"/images"));
 
+// 配置跨域问题
+// app.all('*', function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+//     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+//     res.header("X-Powered-By", ' 3.2.1')
+//     next();
+// });
+
 
 //导入前台的路由文件
 const indexRouter = require("./routers/index");
