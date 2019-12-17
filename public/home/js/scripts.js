@@ -25,6 +25,7 @@ function setCookie(name, value, time) {
     exp.setTime(exp.getTime() + strsec * 1);
     document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString(); //toGMTString() 方法可根据格林威治时间 (GMT) 把 Date 对象转换为字符串，并返回结果。
 }
+
 function getsec(str) {
     var str1 = str.substring(1, str.length) * 1;
     var str2 = str.substring(0, 1);
@@ -155,6 +156,16 @@ $(window).scroll(function () {
     }
 });
 
+//进入找卡页面
+$('#find').click(function(){
+    window.location.href="/findcard";
+});
+
+//进入发布丢卡信息页面
+$('#lost').click(function(){
+    window.location.href="/publishcard";
+});
+
 //禁止右键菜单
 /*window.oncontextmenu = function(){
 	return false;
@@ -261,6 +272,7 @@ $(function () {
         }
     });
 });
+
 //对文章内容进行替换_将icon替换成图片地址
 function replace_em(str) {
     str = str.replace(/\</g, '&lt;');
@@ -268,38 +280,40 @@ function replace_em(str) {
     str = str.replace(/\[em_([0-9]*)\]/g, '<img src="/public/home/images/arclist/$1.gif" border="0" />');
     return str;
 }
+
 // 用户登录
 $(function () {
     $('#isLogining').val()
     $("#login_btn").click(function () {
-      $.ajax({
-        url: '/login',
-        type: 'post',
-        data: {
-          act: 'login',
-          username: $("#username").val(),
-          password: $("#password").val()
-        },
-        success: function (json) {
-          if (json.ok) {
-            alert(json.username + "" + json.msg);
-          } else {
-            alert(json.msg);
-          }
+        $.ajax({
+            url: '/login',
+            type: 'post',
+            data: {
+                act: 'login',
+                username: $("#username").val(),
+                password: $("#password").val()
+            },
+            success: function (json) {
+                if (json.ok) {
+                    alert(json.username + "" + json.msg);
+                } else {
+                    alert(json.msg);
+                }
 
-          if (json.username) {
-            $('#loginBox').addClass('hide');
-            $('#widget').removeClass('hide');
-            window.location.reload();
-          }
-          $('#loginModal').modal('toggle');
-        },
-        error: function (err) {
-          console.log(err);
-        }
-      });
+                if (json.username) {
+                    $('#loginBox').addClass('hide');
+                    $('#widget').removeClass('hide');
+                    window.location.reload();
+                }
+                $('#loginModal').modal('toggle');
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
     });
-  });
+});
+
 // 退出登录
 function logout() {
     $.get("/ajax_logout", function (data) {
@@ -324,4 +338,5 @@ try {
         console.log("\n欢迎访问小北博客！");
         console.log("\nCopyright ©2019 bnuz-app. All rights reserved.");
     }
-} catch (e) { };
+} catch (e) {
+}

@@ -137,14 +137,22 @@
                 </div>
 
 
-                <!--                <div class="widget widget_sentence <%- loginUser ? '' : 'hide' %>" id="widget">-->
-                <!--                    <h3>每日一句</h3>-->
-                <!--                    <div class="widget-sentence-content">-->
-                <!--                        <h4>2019年08月05日星期二</h4>-->
-                <!--                        <p>Do not let what you cannot do interfere with what you can do.<br/>-->
-                <!--                            别让你不能做的事妨碍到你能做的事。（John Wooden）</p>-->
-                <!--                    </div>-->
-                <!--                </div>-->
+                <div class="widget <%- loginUser ? '' : 'hide' %>" id="widget">
+                    <h3>校园小助手</h3>
+                    <div class="widget-helper">
+                        <div class="row clearfix">
+                            <div class="col-md-5 column">
+                                <button type="button" id="find" class="btn btn-default btn-primary btn-block">找卡小助手
+                                </button>
+                            </div>
+                            <div class="col-md-2 column"></div>
+                            <div class="col-md-5 column">
+                                <button type="button" id="lost" class="btn btn-default btn-primary btn-block">丢卡小助手
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- 热门文章展示区 -->
                 <div class="widget widget_hot">
@@ -153,12 +161,11 @@
                         <% hotData.forEach(item=>{%>
                         <li>
                             <a href="/news?id=<%= item.id%>">
-                <span class="thumbnail">
-                  <img class="thumb" src="<%= item.img%>" alt="" onclick="addNum(`<%= item.id%>`)">
-                </span>
+                                <span class="thumbnail">
+                                  <img class="thumb" src="<%= item.img%>" alt="" onclick="addNum(`<%= item.id%>`)">
+                                </span>
                                 <span class="text" onclick="addNum(`<%= item.id%>`)"><%= item.title%></span>
-                                <span class="muted"><i class="glyphicon glyphicon-time"></i> <%= item.time%>
-                </span>
+                                <span class="muted"><i class="glyphicon glyphicon-time"></i> <%= item.time%></span>
                                 <span class="muted"><i class="glyphicon glyphicon-eye-open"></i> <%= item.num%></span>
                             </a>
                         </li>
@@ -191,25 +198,25 @@
 
 
 <!--该功能正在日以继夜的开发中-->
-<div class="modal fade user-select" id="areDeveloping" tabindex="-1" role="dialog"
-     aria-labelledby="areDevelopingModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="areDevelopingModalLabel" style="cursor:default;">该功能正在日以继夜的开发中…</h4>
-            </div>
-            <div class="modal-body"><img src="public/home/images/baoman/baoman_01.gif" alt="深思熟虑"/>
-                <p style="padding:15px 15px 15px 100px; position:absolute; top:15px; cursor:default;">
-                    很抱歉，程序猿正在日以继夜的开发此功能，本程序将会在以后的版本中持续完善！</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">朕已阅</button>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="modal fade user-select" id="areDeveloping" tabindex="-1" role="dialog"-->
+<!--     aria-labelledby="areDevelopingModalLabel">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+<!--                        aria-hidden="true">&times;</span></button>-->
+<!--                <h4 class="modal-title" id="areDevelopingModalLabel" style="cursor:default;">该功能正在日以继夜的开发中…</h4>-->
+<!--            </div>-->
+<!--            <div class="modal-body"><img src="public/home/images/baoman/baoman_01.gif" alt="深思熟虑"/>-->
+<!--                <p style="padding:15px 15px 15px 100px; position:absolute; top:15px; cursor:default;">-->
+<!--                    很抱歉，程序猿正在日以继夜的开发此功能，本程序将会在以后的版本中持续完善！</p>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-primary" data-dismiss="modal">朕已阅</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <!--登录模态框-->
 <div class="modal fade user-select modal-style" id="loginModal" tabindex="-1" role="dialog"
      aria-labelledby="loginModalLabel">
@@ -236,7 +243,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary" id="login_btn">登录</button>
+                    <button type="button" class="btn btn-primary " id="login_btn">登录</button>
                 </div>
             </form>
         </div>
