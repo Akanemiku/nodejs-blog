@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="public/home/css/buttons.css">
     <link rel="apple-touch-icon-precomposed" href="public/home/images/icon/icon.png">
     <link rel="shortcut icon" href="public/home/images/icon/favicon.ico">
-    <link rel="stylesheet" href="public/home/css/pagination.css" />
+    <link rel="stylesheet" href="public/home/css/pagination.css"/>
 
     <script src="public/home/js/jquery-2.1.4.min.js"></script>
     <script src="public/home/js/nprogress.js"></script>
@@ -90,11 +90,11 @@
             /*margin-left: 100px;*/
         }
 
-        #search{
+        #search {
             border: 3px solid black;
         }
 
-        .searchImg{
+        .searchImg {
             width: 36px;
             height: 36px;
             /*margin-left: 6px;*/
@@ -191,16 +191,18 @@
                 <div class="col-md-3 column" style="padding: 10px;">
                     <div style="position: fixed;height: 100%;width: 24%">
                         <div class="widget" style=";margin: 0 auto;width: 100%;height: 97%;padding:30px;">
-                                <div class="col-sm-12" style="white-space:nowrap">
-                                    <input type="text"  id="search" style="width: 80%;height: 100%;padding: 8px;margin-bottom: 15px;margin-left: 6px;"
-                                    onkeypress="onKeyPress(event);"/>
-                                    <button id="searchText" style="background-color: white;border: none;"><img src="/public/card/icon/search.png" class="searchImg"/></button>
+                            <div class="col-sm-12" style="white-space:nowrap">
+                                <input type="text" id="search"
+                                       style="width: 80%;height: 100%;padding: 8px;margin-bottom: 15px;margin-left: 6px;"
+                                       onkeypress="onKeyPress(event);"/>
+                                <button id="searchText" style="background-color: white;border: none;"><img
+                                        src="/public/card/icon/search.png" class="searchImg"/></button>
 
-                                    <!--<button style="height: 100%;">搜索</button>-->
-                                    <!--<span class="input-group-addon" style="height: 100%;">-->
-                                    <!--<i class="glyphicon glyphicon-search"></i>-->
-                                    <!--</span><br>-->
-                                </div>
+                                <!--<button style="height: 100%;">搜索</button>-->
+                                <!--<span class="input-group-addon" style="height: 100%;">-->
+                                <!--<i class="glyphicon glyphicon-search"></i>-->
+                                <!--</span><br>-->
+                            </div>
                             <form class="form-horizontal" style="margin: 20px;font-size: 18px;">
 
                                 <div class="form-group">
@@ -232,13 +234,13 @@
                             </div>
                             <ul class='list-group'>
                                 <!--<a href="#">-->
-                                    <!--<div class='list-group-item' name="xh1701040120">-->
-                                        <!--1701040120<br>-->
-                                        <!--叶威强<img src="/public/card/icon/inspect.png" class="inspect"/><span-->
-                                            <!--style="float: right;font-size: larger">励耘楼</span><br>-->
-                                        <!--信息技术学院<br>-->
+                                <!--<div class='list-group-item' name="xh1701040120">-->
+                                <!--1701040120<br>-->
+                                <!--叶威强<img src="/public/card/icon/inspect.png" class="inspect"/><span-->
+                                <!--style="float: right;font-size: larger">励耘楼</span><br>-->
+                                <!--信息技术学院<br>-->
 
-                                    <!--</div>-->
+                                <!--</div>-->
                                 <!--</a>-->
 
                             </ul>
@@ -252,6 +254,15 @@
 
 
             </div>
+        </div>
+        <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <span id="picker"></span>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
         </div>
 
 
@@ -387,11 +398,11 @@
         //下拉框选择地点后自动更换图片
         $('#selectLocation').change(function () {
             var locationVal = $("#selectLocation").val();
-            if(searchLocationText.indexOf(locationVal) === -1){
+            if (searchLocationText.indexOf(locationVal) === -1) {
                 addLocationLabel($("#selectLocation").val());
                 searchLocationText.push(locationVal);
                 getMsg(pageNum);
-            }else{
+            } else {
                 alert("你已选择" + locationVal + "!");
             }
 
@@ -399,7 +410,7 @@
 
         $('#selectSchool').change(function () {
             var schoolVal = $("#selectSchool").val();
-            if(searchSchoolText.indexOf(schoolVal) === -1){
+            if (searchSchoolText.indexOf(schoolVal) === -1) {
                 $(".mylabel").append("<span class='schoollabel'><span>" + schoolVal + "</span><a href='#' style='color: white;' class='delete'><img src='/public/card/icon/delete.png' class='deleteImg'></a></span>");
                 $(".delete").click(function () {
                     $(this).parent().remove();
@@ -408,7 +419,7 @@
                 });
                 searchSchoolText.push(schoolVal);
                 getMsg(pageNum);
-            }else{
+            } else {
                 alert("你已选择" + schoolVal + "!");
             }
 
@@ -440,11 +451,11 @@
             $(this).click(function () {
                 //点击地图上的建筑物更换下拉框的地址
                 $('#selectLocation').selectpicker('val', (name));
-                if(searchLocationText.indexOf(name) === -1){
+                if (searchLocationText.indexOf(name) === -1) {
                     addLocationLabel(name);
                     searchLocationText.push(name)
                     getMsg(pageNum);
-                }else{
+                } else {
                     alert("你已选择" + name + "!");
                 }
             });
@@ -453,7 +464,6 @@
                 // console.log(name);
                 $('.buildingName').html(name);
                 $('.buildingDescribe').html(buildingDescribe[name]);
-
 
 
             });
@@ -471,8 +481,6 @@
         $('#searchText').click(function () {
             getMsg(pageNum);
         })
-
-
 
 
     });
@@ -501,7 +509,7 @@
                     prev_text: "上一页",
                     next_text: "下一页",
                     callback: function (index) {
-                        var newElement = "";
+                        // var newElement = "";
                         $('.list-group').empty();
 
                         // console.log(showNum * index + '~' + parseInt(showNum * index) + parseInt(showNum));
@@ -509,17 +517,28 @@
                         for (var i = showNum * index; i < showNum * index + showNum; i++) {
                             // console.log(i);
                             if (i < dataL) {
-
-                                newElement += "<a href='#'>" +
+                                var date = new Date(data.list[i].publish_time);
+                                M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                                D = date.getDate() + ' ';
+                                 var newElement = "<span style='cursor:pointer' data-toggle='modal'  class='detailCard' id=card" + data.list[i].id + ">" +
+                                // newElement += "<a href='/detailcard?id=" + data.list[i].id + "' data-toggle='modal' data-target='#detailModal'>" +
                                     "<div class='list-group-item' name='xh" + data.list[i].stu_no + "'>" +
-                                    data.list[i].stu_no + "<br>" +
-                                    data.list[i].stu_name + "<img src='/public/card/icon/inspect.png' class='inspect'/><span style='float: right;font-size: larger'>" + data.list[i].lost_location + "</span><br>" +
-                                    data.list[i].stu_school + "<br>" +
-                                    "</div></a>";
+                                    data.list[i].stu_no + "<span style='float:right'>" + getDate('mm-dd', data.list[i].publish_time*1000) + "发布</span><br>" +
+                                    data.list[i].stu_name + "<br>" +
+                                    data.list[i].stu_school + "<img src='/public/card/icon/inspect.png' class='inspect'/><span style='float: right;font-size: larger'>" + data.list[i].lost_location + "</span><br>" +
+                                    "</div></span>";
+
+                                $('.detailCard').click(function () {
+                                    alert($(this).attr("id"))
+                                    console.log($(this).attr('id'))
+                                    $("#picker").val()
+                                });
+                                $('.list-group').append(newElement)
 
                             }
                         }
-                        $('.list-group').append(newElement)
+
+
 
                     }
                 })
@@ -536,12 +555,55 @@
         }
     }
 
-    Array.prototype.remove = function(val) {
+    Array.prototype.remove = function (val) {
         var index = this.indexOf(val);
         if (index > -1) {
             this.splice(index, 1);
         }
     };
+
+    function timestampToTime(timestamp) {
+        var date = new Date();//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+        var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+        var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+        var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+
+        strDate = Y + M + D + h + m + s;
+        return strDate;
+
+    }
+
+    //转换年月日方法
+    function getDate(format, str) {
+        var oDate = new Date(str),
+            oYear = oDate.getFullYear(),
+            oMonth = oDate.getMonth() + 1,
+            oDay = oDate.getDate(),
+            oHour = oDate.getHours(),
+            oMin = oDate.getMinutes(),
+            oSec = oDate.getSeconds();
+        var oTime;
+        if (format == 'yyyy-mm-dd') {
+            oTime = oYear + '-' + getzf(oMonth) + '-' + getzf(oDay);//最后拼接时间
+        } else if (format == 'yyyy/mm/dd') {
+            oTime = oYear + '/' + getzf(oMonth) + '/' + getzf(oDay) + ' ' + getzf(oHour) + ':' + getzf(oMin) + ':' + getzf(oSec);//最后拼接时间
+        } else if (format == 'mm-dd') {
+            oTime = getzf(oMonth) + '-' + getzf(oDay);//最后拼接时间
+        }
+        return oTime;
+    };
+
+    //补0操作
+    function getzf(num) {
+        if (parseInt(num) < 10) {
+            num = '0' + num;
+        }
+        return num;
+    }
+
 
 </script>
 </html>

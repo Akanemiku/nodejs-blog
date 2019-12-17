@@ -39,4 +39,11 @@ router.get('/getcardlist', function (req, res, next) {
 
 });
 
+router.get('/detailcard', function (req, res, next) {
+    cardModel.getDetailCard(req.query.id, req, res, function (err, result) {
+        res.end(JSON.stringify(result));
+    })
+
+});
+
 module.exports = router;

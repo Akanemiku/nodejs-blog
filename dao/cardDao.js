@@ -69,7 +69,8 @@ module.exports = {
                 });
                 sql += ")";
             }
-            console.log(sql)
+            sql += " order by publish_time desc";
+            console.log(sql);
             conn.query(sql, function (err, result) {
                 if (err) {
                     console.log("[SELECT ERROR] - ", err.message);
@@ -82,6 +83,23 @@ module.exports = {
             })
 
         })
-
-    }
+    },
+    getDetailCard: function (id, req, res, callback) {
+        pool.getConnection(function (err, conn) {
+            var sql = "select * from card where id=?";
+            conn.query(sql, id, function (err, result) {
+                if (err) {
+                    console.log("[SELECT ERROR] - ", err.message);
+                    return;
+                }
+                console.log('-----------------------------------------SELECT SUCCESSFUL---------------------------------------------');
+                console.log(result)
+                console.log("selectCardId:" + id + " No:" + result.stu_no + " Name:" + result.stu_name);
+                console.log('-------------------------------------------------------------------------------------------------------\n');
+                // callback(err, JSON.stringify(result));
+                callback(err, result);
+                conn.release()
+            })
+        })
+    },
 };
