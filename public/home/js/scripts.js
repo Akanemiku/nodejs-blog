@@ -157,13 +157,13 @@ $(window).scroll(function () {
 });
 
 //进入找卡页面
-$('#find').click(function () {
-    window.location.href = "/findcard";
+$('#find').click(function(){
+    window.location.href="/findcard";
 });
 
 //进入发布丢卡信息页面
-$('#lost').click(function () {
-    window.location.href = "/publishcard";
+$('#lost').click(function(){
+    window.location.href="/publishcard";
 });
 
 //禁止右键菜单
@@ -281,41 +281,66 @@ function replace_em(str) {
     return str;
 }
 
-// 用户登录
+
 $(function () {
-    $('#isLogining').val()
+    $('#isLogining').val();
+
+    // 用户登录
     $("#login_btn").click(function () {
         $.ajax({
-            url: 'http://47.98.154.117/doLogin',
+            url: '/login',
             type: 'post',
             data: {
-                act: 'login',
+                //act: 'login',
                 username: $("#username").val(),
                 password: $("#password").val()
             },
-            success: function (data, status) {
-                console.log(data)
-                console.log(data.name)
-                alert(data.success)
-                // if (json.ok) {
-                //     alert(json.username + "" + json.msg);
-                // } else {
-                //     alert(json.msg);
-                // }
-                //
-                // if (json.username) {
-                //     $('#loginBox').addClass('hide');
-                //     $('#widget').removeClass('hide');
-                //     window.location.reload();
-                // }
-                // $('#loginModal').modal('toggle');
+            success: function (json) {
+                // console.log(json);
+                if (json.ok) {
+                    alert(json.username + "" + json.msg);
+                } else {
+                    alert(json.msg);
+                }
+                if (json.username) {
+                    $('#loginBox').addClass('hide');
+                    $('#widget').removeClass('hide');
+                    window.location.reload();
+                }
+                $('#loginModal').modal('toggle');
             },
             error: function (err) {
                 console.log(err);
             }
         });
     });
+
+    // 用户注册判断
+    // $("#reg_btn").click(function () {
+    //     $.ajax({
+    //         url: "/reg",
+    //         type: "post",
+    //         data: {
+    //             username: $("#regUsername").val(),
+    //             password: $("#regPassword").val(),
+    //             repassword: $("#regRepassword").val(),
+    //         },
+    //         success: function (json) {
+    //             if (json.ok) {
+    //                 $('#regModal').modal('toggle');
+    //                 window.location.reload();
+    //             }
+    //             alert(json.msg);
+    //
+    //         },
+    //         error: function (err) {
+    //             console.log(err);
+    //         }
+    //     });
+    // });
 });
+
+
 
 // 退出登录
 function logout() {

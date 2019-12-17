@@ -153,10 +153,7 @@ body, input, button, textarea, select {
 background:#444;
 color:#FFF;
 }
-::-webkit-selection {
-background:#444;
-color:#FFF;
-}
+
 
 /*容器*/
 @media (min-width:768px) {
@@ -198,7 +195,7 @@ color:#FFF;
 	margin-top: 5px;
 	border-radius: 50%;
 	margin-left: 10px; 
-	border: 1px solid #000;
+	/*border: 1px solid #000;*/
 }
 .header-topbar {
 	margin: 10px 0px 5px;

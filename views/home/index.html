@@ -91,8 +91,7 @@
                     <p class="meta">
                         <time class="time"><i class="glyphicon glyphicon-time"></i> <%= item.time%></time>
                         <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共<%= item.num%>人围观</span>
-                        <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i>
-                            0个不明物体</a></p>
+                    </p>
                     <p class="note"><%= item.info%></p>
                 </article>
                 <% }) %>
@@ -126,7 +125,7 @@
                             <h4>需要登录才能进入会员中心</h4>
                             <p>
                                 <a data-toggle="modal" data-target="#loginModal" class="btn btn-primary">立即登录</a>
-                                <!--                                <a data-toggle="modal" data-target="#regModal" class="btn btn-default">现在注册</a>-->
+<!--                                <a data-toggle="modal" data-target="#regModal" class="btn btn-default">现在注册</a>-->
                             </p>
                         </div>
                         <!-- <div role="tabpanel" class="tab-pane contact" id="contact">
@@ -222,7 +221,7 @@
      aria-labelledby="loginModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="/#" method="post">
+            <form action="#" method="post">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
@@ -230,13 +229,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="loginModalUserNmae">学号</label>
+                        <label for="username">学号</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名"
                                autofocus
                                maxlength="15" autocomplete="off" required>
                     </div>
                     <div class="form-group">
-                        <label for="loginModalUserPwd">密码</label>
+                        <label for="password">密码</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码"
                                maxlength="18" autocomplete="off" required>
                     </div>
@@ -263,20 +262,20 @@
 <!--                </div>-->
 <!--                <div class="modal-body">-->
 <!--                    <div class="form-group">-->
-<!--                        <label for="regModalUserNmae">用户名</label>-->
+<!--                        <label for="regUsername">用户名</label>-->
 <!--                        <input type="text" class="form-control" id="regUsername" name="username" placeholder="请输入用户名"-->
 <!--                               autofocus-->
 <!--                               maxlength="12" autocomplete="off"-->
 <!--                               data-validate="required:请输入用户名,length#>=6:账户名不能小于6位,length#<=12:账户名最多12位" required>-->
 <!--                    </div>-->
 <!--                    <div class="form-group">-->
-<!--                        <label for="regModalUserPwd">密码</label>-->
+<!--                        <label for="regPassword">密码</label>-->
 <!--                        <input type="password" class="form-control" id="regPassword" name="password" placeholder="请输入密码"-->
 <!--                               maxlength="18" autocomplete="off" data-validate="required:请输入密码,length#>=8:密码不能小于8位"-->
 <!--                               required>-->
 <!--                    </div>-->
 <!--                    <div class="form-group">-->
-<!--                        <label for="regModalUserPwd">确认密码</label>-->
+<!--                        <label for="regRepassword">确认密码</label>-->
 <!--                        <input type="password" class="form-control" id="regRepassword" name="repassword"-->
 <!--                               placeholder="请再次输入密码"-->
 <!--                               maxlength="18" autocomplete="off"-->

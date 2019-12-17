@@ -76,74 +76,96 @@ router.get('/', function (req, res, next) {
 });
 
 // 会员添加页面
-router.get('/add', function (req, res, next) {
-	res.render("admin/user/add");
-});
+// router.get('/add', function (req, res, next) {
+// 	res.render("admin/user/add");
+// });
 
 // 会员添加操作
-router.post('/add', upload.single("avatar"), function (req, res, next) {
-	// 获取上传文件资源
-	let imgRes = req.file;
-	// 获取上传的数据
-	let { username, password, repassword, status } = req.body;
-	// 获取当前毫秒时间戳
-	let time = (Math.round(new Date().getTime()) / 1000);//秒时间戳，需要转换成毫秒
-	// 进行图片上传
-	let avatar = uploads(imgRes, "avatar");//返回图片存放的地址
+// router.post('/add', upload.single("avatar"), function (req, res, next) {
+// 	// 获取上传文件资源
+// 	let imgRes = req.file;
+// 	// 获取上传的数据
+// 	let { username, password, repassword, status } = req.body;
+// 	// 获取当前毫秒时间戳
+// 	let time = (Math.round(new Date().getTime()) / 1000);//秒时间戳，需要转换成毫秒
+// 	// 进行图片上传
+// 	let avatar = uploads(imgRes, "avatar");//返回图片存放的地址
+//
+// 	// console.log(avatar);
+// 	if (username) {
+// 		if (password) {
+// 			if (username.length >= 6 && username.length <= 12) {
+// 				if (password.length >= 8) {
+// 					if (password === repassword) {
+// 						// 查询数据库是否存在同名用户
+// 						mysql.query("select * from user where username = ?", [username], function (err, data) {
+// 							if (err) {
+// 								console.log(data);
+// 								return "";
+// 							} else {
+// 								console.log(data);
+// 								if (data.length == 0) {
+// 									// 判断用户是否上传图片
+// 									if(!imgRes){
+// 										avatar = '/public/home/images/icon/icon.png'
+// 									}
+// 									// 执行数据库插入操作
+// 									mysql.query("insert into user(username,password,status,time,avatar) value(?,?,?,?,?)", [username, password, status, time, avatar], function (err, data) {
+// 										if (err) {
+// 											return "";
+// 										} else {
+// 											if (data.affectedRows == 1) {
+// 												res.send("<script>alert('会员添加成功');location.href = '/admin/user'</script>");
+// 											} else {
+// 												res.send("<script>alert('会员添加失败');history.go(-1)</script>");
+// 											}
+// 										}
+// 									});
+// 									// console.log(imgRes);
+// 									// console.log(req.body);
+// 								} else {
+// 									res.send("<script>alert('该用户已被注册');history.go(-1)</script>");
+// 								}
+// 							}
+// 						});
+// 					} else {
+// 						res.send("<script>alert('两次输入的密码不一致');history.go(-1)</script>");
+// 					}
+// 				} else {
+// 					res.send("<script>alert('密码长度要大于8位间');history.go(-1)</script>");
+// 				}
+// 			} else {
+// 				res.send("<script>alert('用户名长度在6-12位之间');history.go(-1)</script>");
+// 			}
+// 		} else {
+// 			res.send("<script>alert('请输入密码');history.go(-1)</script>");
+// 		}
+// 	} else {
+// 		res.send("<script>alert('请输入用户名');history.go(-1)</script>");
+// 	}
+//
+// });
 
-	// console.log(avatar);
-	if (username) {
-		if (password) {
-			if (username.length >= 6 && username.length <= 12) {
-				if (password.length >= 8) {
-					if (password === repassword) {
-						// 查询数据库是否存在同名用户
-						mysql.query("select * from user where username = ?", [username], function (err, data) {
-							if (err) {
-								console.log(data);
-								return "";
-							} else {
-								console.log(data);
-								if (data.length == 0) {
-									// 判断用户是否上传图片
-									if(!imgRes){
-										avatar = '/public/home/images/icon/icon.png'
-									}
-									// 执行数据库插入操作
-									mysql.query("insert into user(username,password,status,time,avatar) value(?,?,?,?,?)", [username, password, status, time, avatar], function (err, data) {
-										if (err) {
-											return "";
-										} else {
-											if (data.affectedRows == 1) {
-												res.send("<script>alert('会员添加成功');location.href = '/admin/user'</script>");
-											} else {
-												res.send("<script>alert('会员添加失败');history.go(-1)</script>");
-											}
-										}
-									});
-									// console.log(imgRes);
-									// console.log(req.body);
-								} else {
-									res.send("<script>alert('该用户已被注册');history.go(-1)</script>");
-								}
-							}
-						});
-					} else {
-						res.send("<script>alert('两次输入的密码不一致');history.go(-1)</script>");
-					}
-				} else {
-					res.send("<script>alert('密码长度要大于8位间');history.go(-1)</script>");
-				}
-			} else {
-				res.send("<script>alert('用户名长度在6-12位之间');history.go(-1)</script>");
-			}
+// 无刷新修改状态
+router.get('/ajax_status', function (req, res, next) {
+	// console.log(req.query);
+	// 接收对应的数据
+	let { id, status } = req.query;//{ id: '8', status: '1' }
+	// 修改数据
+	mysql.query("update user set status= ? where id= ?", [status, id], function (err, data) {
+		// 判断是否修改成功(报错)
+		if (err) {
+			return "";
 		} else {
-			res.send("<script>alert('请输入密码');history.go(-1)</script>");
+			// console.log("data.affectedRows: " +data.affectedRows);
+			// 如果已经修改成功
+			if (data.affectedRows == 1) {
+				res.send("1");
+			} else {
+				res.send("0");
+			}
 		}
-	} else {
-		res.send("<script>alert('请输入用户名');history.go(-1)</script>");
-	}
-
+	});
 });
 
 
