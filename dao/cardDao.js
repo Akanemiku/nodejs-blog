@@ -97,7 +97,19 @@ module.exports = {
                 console.log("selectCardId:" + id + " No:" + result[0].stu_no + " Name:" + result[0].stu_name);
                 console.log('-------------------------------------------------------------------------------------------------------\n');
                 // callback(err, JSON.stringify(result));
-                callback(err, result);
+                data = ' <div class="modal-header" style="border: none;padding: 10px;">\n' +
+                            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;\n</button>\n' +
+                        '</div>\n' +
+                        '<div class="modal-body" style="margin:0 25px 10px 25px;padding-top:0;">' +
+                            "<h3>学号：" + result[0].stu_no + "</h3>" +
+                            "<h3>姓名：" + result[0].stu_name + "</h3>" +
+                            "<h3>学院：" + result[0].stu_school + "</h3>" +
+                            "<h3>丢失地点：" + result[0].lost_location + "</h3>" +
+                            "<h3>联系方式：" + result[0].contact + "</h3>" +
+                        "</div>";
+                // "<h3>" + "</h3>" +
+
+                callback(err, data);
                 conn.release()
             })
         })
