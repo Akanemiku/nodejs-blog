@@ -8,7 +8,7 @@ module.exports = {
     addCard: function (params, req, res, callback) {
         console.log(params)
         pool.getConnection(function (err, conn) {
-            var sql = "insert into card(stu_no,stu_name,stu_school,lost_location,publish_id,publish_time) values(?,?,?,?,?,?)";
+            var sql = "insert into card(stu_no,stu_name,stu_school,lost_location,publish_id,publish_time,contact) values(?,?,?,?,?,?,?)";
             conn.query(sql, params, function (err, result) {
                 if (err) {
                     console.log("[INSERT ERROR] - ", err.message);
@@ -94,7 +94,7 @@ module.exports = {
                 }
                 console.log('-----------------------------------------SELECT SUCCESSFUL---------------------------------------------');
                 console.log(result)
-                console.log("selectCardId:" + id + " No:" + result.stu_no + " Name:" + result.stu_name);
+                console.log("selectCardId:" + id + " No:" + result[0].stu_no + " Name:" + result[0].stu_name);
                 console.log('-------------------------------------------------------------------------------------------------------\n');
                 // callback(err, JSON.stringify(result));
                 callback(err, result);
