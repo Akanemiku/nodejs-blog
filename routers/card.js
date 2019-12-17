@@ -14,7 +14,7 @@ const moment = require("moment");
 router.post('/publish_card', function (req, res, next) {
     let {stu_no, stu_name, stu_school, lost_location, publish_time, contact} = req.body;
     publish_time = moment().subtract(publish_time, 'days').unix();
-    if (stu_no === "" || stu_name === "" || stu_school === "" || lost_location === "") {
+    if (stu_no === "" || stu_name === "" || stu_school === "" || lost_location === "" || stu_no.length >= 11 || stu_name.length >= 10 || contact.length >= 20) {
         res.send("<script>alert('发布失败，请重新发布！');location.href = '/publishcard';</script>");
     } else {
         var params = [stu_no, stu_name, stu_school, lost_location, "1701040120", publish_time, contact];

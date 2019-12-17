@@ -54,7 +54,7 @@ module.exports = {
                 if ((text === undefined || text === "") && (school === "" || school === undefined)) {
                     sql += " where (";
                 } else {
-                    sql += " and (";
+                    sql += " or (";
                 }
                 location.forEach(function (v, i, a) {    //当前的值，循环遍历的下标，数组的值
                     // console.log(v);

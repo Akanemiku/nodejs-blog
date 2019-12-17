@@ -98,7 +98,8 @@
             height: 36px;
             /*margin-left: 6px;*/
         }
-        h3{
+
+        h3 {
             margin-bottom: 8px;
         }
 
@@ -120,7 +121,7 @@
                             <div class="img_area" style="overflow-x:scroll;">
                                 <img src="public/card/images/a.png" name="JS_exprMap" usemap="#Map"
                                      class="maphilighted1"
-                                     id="JS_exprMap" />
+                                     id="JS_exprMap"/>
                                 <map name="Map" id="Map">
                                     <area shape="poly"
                                           coords="419,704,434,698,452,667,424,537,445,524,474,517,500,519,527,526,542,501,523,491,499,485,473,484,457,488,439,495,410,507,398,525,369,549,375,566,364,573,364,603,382,620,374,638,366,650,366,667"
@@ -261,24 +262,24 @@
         </div>
 
         <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width: 70%;">
-                <div class="modal-header" style="border: none;padding: 10px;">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                </div>
-                <div class="modal-body" style="margin:0 25px 10px 25px;padding-top:0;">
-                    <!--<h3>学号：1701040120</h3>-->
-                    <!--<h3>姓名：叶威强</h3>-->
-                    <!--<h3>学院：信息技术学院</h3>-->
-                    <!--<h3>丢失地点：励耘楼</h3>-->
-                    <!--<h3>联系方式：wx:roryye</h3>-->
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 70%;">
+                    <div class="modal-header" style="border: none;padding: 10px;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin:0 25px 10px 25px;padding-top:0;">
+                        <!--<h3>学号：1701040120</h3>-->
+                        <!--<h3>姓名：叶威强</h3>-->
+                        <!--<h3>学院：信息技术学院</h3>-->
+                        <!--<h3>丢失地点：励耘楼</h3>-->
+                        <!--<h3>联系方式：wx:roryye</h3>-->
 
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
-    </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
 
 
     </div>
@@ -313,7 +314,8 @@
         "工程技术学院", "外国语学院", "应用数学学院", "物流学院", "运动休闲学院", "马克思主义学院", "继续教育学院", "未来地球研究院"
     ];
     var buildingDescribe = {
-
+        "丽泽湖": "丽泽湖坐落在丽泽楼前，每天清晨，当阳光懒洋洋地撒在湖面上时，风景是多么的让人惊叹；在蔚蓝的天空掩映下湖水是那样湛蓝，那样晶莹透澈。但时不时有各种“野怪”出现，其中野猪最为人知晓。"
+        ,
         "励耘楼": "“励耘”源自北师大老校长陈垣先生的书屋名叫“励耘书屋”。中文系著名教授、文献学研究专家启功先生为报师恩，设立了励耘讲学助学基金。" +
             "以“励耘”命名，借此表达陈垣老校长和启功先生对北师大学子的治学期望。"
         ,
@@ -373,31 +375,9 @@
         $("#selectLocation").append("<option value='" + value + "'>" + value + "</option>")
     }
 
-    // $.get("/getcardlist", function (data, status) {
-    //     console.log(data);
-    //     console.log(typeof(data));
-    //     var result = JSON.parse(data);
-    //     console.log(result)
-    //     // alert(result)
-    //     var newElement = "";
-    //     $.each(result, function (i, val) {
-    //         // console.log(i)
-    //         // console.log(val.stu_no)
-    //         // console.log(val.stu_name)
-    //         newElement += "<a href='#'>" +
-    //             "<div class='list-group-item' name='xh" + val.stu_no + "'>" +
-    //             val.stu_no + "<br>" +
-    //             val.stu_name + "<img src='/public/card/icon/inspect.png' class='inspect'/><span style='float: right;font-size: larger'>励耘楼</span><br>" +
-    //             val.stu_school + "<br>" +
-    //             "</div></a>";
-    //
-    //     });
-    //     $('.list-group').append(newElement)
-    // });
-
     $(document).ready(function () {
 
-        $("#detailModal").on("hidden.bs.modal", function() {
+        $("#detailModal").on("hidden.bs.modal", function () {
             $(this).removeData("bs.modal");
         });
         // $("#detailModal").modal('show');
@@ -411,15 +391,23 @@
         getMsg(pageNum);
 
 
-        $(".delete").click(function () {
-            $(this).parent().remove()
-        });
+        // $(".delete").click(function () {
+        //     $(this).parent().remove()
+        // });
 
         //下拉框选择地点后自动更换图片
         $('#selectLocation').change(function () {
             var locationVal = $("#selectLocation").val();
             if (searchLocationText.indexOf(locationVal) === -1) {
-                addLocationLabel($("#selectLocation").val());
+                // addLocationLabel($("#selectLocation").val());
+                var newElement = "<span class='locationlabel'><span>" + locationVal + "</span><a href='#' style='color: white;' class='delete'><img src='/public/card/icon/delete.png' class='deleteImg'></a></span>";
+                $(".mylabel").append(newElement);
+                $(".delete").click(function () {
+                    $(this).parent().remove();
+                    searchLocationText.remove(locationVal)
+                    getMsg(pageNum);
+                });
+
                 searchLocationText.push(locationVal);
                 getMsg(pageNum);
             } else {
@@ -506,6 +494,8 @@
     });
 
     function getMsg(num) {
+        console.log(searchSchoolText)
+        console.log(searchLocationText)
         $.ajax({
             url: '/getcardlist',
             type: 'GET',
@@ -543,7 +533,7 @@
                                 // newElement += "<span style='cursor:pointer' data-toggle='modal'  class='detailCard' id=card" + data.list[i].id + ">" +
                                 var newElement = "<a href='/detailcard?id=" + data.list[i].id + "' data-toggle='modal' data-target='#detailModal'>" +
                                     "<div class='list-group-item' name='xh" + data.list[i].stu_no + "'>" +
-                                    data.list[i].stu_no + "<span style='float:right'>" + getDate('mm-dd', data.list[i].publish_time*1000) + "发布</span><br>" +
+                                    data.list[i].stu_no + "<span style='float:right'>" + getDate('mm-dd', data.list[i].publish_time * 1000) + "发布</span><br>" +
                                     data.list[i].stu_name + "<br>" +
                                     data.list[i].stu_school + "<img src='/public/card/icon/inspect.png' class='inspect' /><span style='float: right;font-size: larger'>" + data.list[i].lost_location + "</span><br>" +
                                     "</div></a>";
@@ -558,8 +548,6 @@
 
                             }
                         }
-
-
 
 
                     }
