@@ -42,35 +42,85 @@
             </span> <span class="item article-meta-source" data-toggle="tooltip" data-placement="bottom"
                           title="<%= newsData.author%>">
               <i class="glyphicon glyphicon-globe"></i> <%= newsData.author%></span>
-                    <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom"
-                          title="栏目：<%= newsData.tname%>">
-              <i class="glyphicon glyphicon-list"></i> <a href="#" title=""><%= newsData.tname%></a></span>
+                    <!--                    <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom"-->
+                    <!--                          title="栏目：<%= newsData.tname%>">-->
+                    <!--              <i class="glyphicon glyphicon-list"></i> <a href="#" title=""><%= newsData.tname%></a></span>-->
                     <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom"
                           title="查看：<%= newsData.num%>">
-              <i class="glyphicon glyphicon-eye-open"></i> 共<%= newsData.num%>人围观</span>
+              <i class="glyphicon glyphicon-eye-open"></i> <%= newsData.num%>在看</span>
                 </div>
             </header>
             <article class="article-content">
                 <%- newsData.text%>
             </article>
-            <div class="article-tags">标签：<a href="#" rel="tag"><%= newsData.keywords%></a></div>
-            <div class="relates">
-                <div class="title">
-                    <h3>相关推荐</h3>
-                </div>
-                <ul>
-                    <% relaData.forEach(item=>{%>
-                    <% if (item.tid == newsData.tid && item.id !=newsData.id){%>
-                    <li><a href="/news?id=<%= item.id%>"><%= item.title%></a></li>
-                    <%}else{%>
-                    <% }%>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
 
-                    <% }) %>
-                </ul>
+
+                    <div class="title">
+                        <h3>热门文章</h3>
+                    </div>
+
+                    <table class="table">
+                        <tbody>
+                        <%
+                        var index = 0;
+                        for(var i = 0; i < hotData.length; i++){
+                        %>
+                        <%
+                        if(i%3==0){
+                        %>
+                        <tr>
+                            <% } index++; %>
+                            <td>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-body" style="text-align: center">
+                                        <a class="focus" href="/news?id=<%= hotData[i].id%>">
+                                            <img class="thumb" src="<%= hotData[i].img%>" alt=""></a>
+                                        <header>
+                                            <h3 style="margin-top: 10px;"><%= hotData[i].info%></h3>
+                                        </header>
+                                        <p class="meta" style="margin-top: 10px;">
+                                            <time class="time"><i class="glyphicon glyphicon-time"></i> <%=
+                                                hotData[i].time%>
+                                            </time>
+                                            <span class="views" style="margin-left: 10px;"><i
+                                                    class="glyphicon glyphicon-eye-open"></i> <%= hotData[i].num%>在看</span>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <% if(index==3){
+                            index = 0;
+                            %>
+                        </tr>
+                        <% } %>
+                        <% } %>
+                        </tbody>
+                    </table>
+
+
+                </div>
             </div>
+            <!--            <div class="article-tags">标签：<a href="#" rel="tag"><%= newsData.keywords%></a></div>-->
+            <!--            <div class="relates">-->
+            <!--                <div class="title">-->
+            <!--                    <h3>相关推荐</h3>-->
+            <!--                </div>-->
+            <!--                <ul>-->
+            <!--                    <% relaData.forEach(item=>{%>-->
+            <!--                    <% if (item.tid == newsData.tid && item.id !=newsData.id){%>-->
+            <!--                    <li><a href="/news?id=<%= item.id%>"><%= item.title%></a></li>-->
+            <!--                    <%}else{%>-->
+            <!--                    <% }%>-->
+
+            <!--                    <% }) %>-->
+            <!--                </ul>-->
+            <!--            </div>-->
             <div class="title" id="comment">
                 <h3>评论
-                    <small>抢沙发</small>
                 </h3>
             </div>
             <!--<div id="respond">
@@ -86,7 +136,7 @@
                         <div class="comment-title"><img class="avatar" src="<%- userAvatar ? userAvatar :'' %>" alt=""/>
                         </div>
                         <div class="comment-box">
-                <textarea placeholder="您的评论可以一针见血" name="comment" id="comment-textarea" cols="100%" rows="3"
+                <textarea placeholder="留个足迹吧..." name="comment" id="comment-textarea" cols="100%" rows="3"
                           tabindex="1"></textarea>
                             <div class="comment-ctrl"> <span class="emotion"><img src="/public/home/images/face/5.png"
                                                                                   width="20"
@@ -110,8 +160,8 @@
                     <li class="comment-content"><span class="comment-f"></span>
                         <div class="comment-avatar"><img class="avatar" src="<%= item.avatar%>" alt=""/></div>
                         <div class="comment-main">
-                            <p>来自<span class="address">广东广州（<%= item.username%>）</span>用户的评论：<span class="time "
-                                                                                                   style="float: right"><%= item.time%></span><br/>
+                            <p>来自<span class="address"><%= item.username%></span>用户的评论：<span class="time "
+                                                                                             style="float: right"><%= item.time%></span><br/>
                                 <%- item.text%>（#<%= newsDatanum-- %>）
                                 <!--                                <span class="zan"-->
                                 <!--                                      onclick="addzan( `<%- item.user_id%>`)"></span>-->
@@ -124,28 +174,7 @@
             </div>
         </div>
     </div>
-    <aside class="sidebar">
-        <div class="fixed">
 
-            <div class="widget widget_hot">
-                <h3>热门文章</h3>
-                <ul>
-                    <% hotData.forEach(item=>{%>
-                    <li>
-                        <a href="/news?id=<%= item.id%>">
-                            <span class="thumbnail"><img class="thumb" src="<%= item.img%>" alt=""></span>
-                            <span class="text"><%= item.info%></span><span class="muted"><i
-                                class="glyphicon glyphicon-time"></i><%= item.time%> </span>
-                            <span class="muted"><i class="glyphicon glyphicon-eye-open"></i> <%= item.num%></span>
-                        </a>
-                    </li>
-                    <% }) %>
-                </ul>
-            </div>
-
-        </div>
-
-    </aside>
 </section>
 <% include common/footer.html %>
 

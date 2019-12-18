@@ -133,7 +133,7 @@ router.get('/', function (req, res, next) {
                                 item.time = moment(item.time * 1000).format("YYYY-MM-DD HH:mm:ss");
                             })
                             // 处理热门文章
-                            mysql.query("select * from news order by num desc limit 5", function (err, data4) {
+                            mysql.query("select * from news order by num desc limit 3", function (err, data4) {
                                 if (err) {
                                     return ""
                                 } else {
@@ -203,7 +203,7 @@ router.get('/news', function (req, res, next) {
                                 item.time = moment(item.time * 1000).format("YYYY-MM-DD HH:mm:ss");
                             })
                             // 热门文章展示
-                            mysql.query("select * from news order by num desc limit 5", function (err, data4) {
+                            mysql.query("select * from news order by num desc limit 3", function (err, data4) {
                                 if (err) {
                                     return "";
                                 } else {

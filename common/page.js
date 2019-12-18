@@ -9,8 +9,7 @@ function pagess(tot, p, size) {
 	let show = "";
 	show +=`<a href="?p=1">首页</a>`;
 	show +=`<a href="?p=${p-1 >=1 ? p-1: 1 }">上一页</a>`;
-	show +=`<span class="current">${p}</span>`;
-	show +=`<a href="">...</a>`;
+	show +=`<span class="current">当前页：${p}</span>`;
 	show +=`<span class="current">总页数：${pages}</span>`;
 	show +=`<a href="?p=${Number(p)+1 <= pages ? Number(p)+1: pages}">下一页</a>`;
 	show +=`<a href="?p=${pages}">尾页</a>`;
