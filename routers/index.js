@@ -48,6 +48,24 @@ router.get('/publishcard', function (req, res, next) {
     });
 });
 
+router.get('/info', function (req, res, next) {
+    const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
+    // 获取到的是一个buffer流，需要转换成json对象
+    const webConfig = JSON.parse(webConfigData.toString());
+
+    if (req.session.isLogin && req.session.homeUsername && req.session.userAvatar) {
+        var loginUser = req.session.homeUsername;//获取用户名
+        var username = req.session.username;//获取学号
+        var userAvatar = req.session.userAvatar;//获取用户头像
+    }
+    res.render("card/publishcard.html", {
+        webConfig: webConfig,
+        loginUser: loginUser,
+        userAvatar: userAvatar,
+        username:username
+    });
+});
+
 router.get('/findcard', function (req, res, next) {
     const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
     // 获取到的是一个buffer流，需要转换成json对象
@@ -235,6 +253,7 @@ router.post('/login', function (req, res, next) {
                                     req.session.isLogin = true;
                                     req.session.homeUsername = name;
                                     req.session.userAvatar = avatar;
+                                    req.session.username = username;
                                     res.send({
                                         ok: true,
                                         msg: " 欢迎回来",
@@ -262,6 +281,7 @@ router.post('/login', function (req, res, next) {
                                         req.session.isLogin = true;
                                         req.session.homeUsername = data[0].name;
                                         req.session.userAvatar = data[0].avatar;
+                                        req.session.username = data[0].username;
                                         res.send({
                                             ok: true,
                                             msg: " 欢迎回来",

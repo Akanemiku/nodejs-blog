@@ -17,7 +17,8 @@ router.post('/publish_card', function (req, res, next) {
     if (stu_no === "" || stu_name === "" || stu_school === "" || lost_location === "" || stu_no.length >= 11 || stu_name.length >= 10 || contact.length >= 20) {
         res.send("<script>alert('发布失败，请重新发布！');location.href = '/publishcard';</script>");
     } else {
-        var params = [stu_no, stu_name, stu_school, lost_location, "1701040120", publish_time, contact];
+        // console.log(req.session.username)
+        var params = [stu_no, stu_name, stu_school, lost_location, req.session.username, publish_time, contact];
         cardModel.addCard(params, req, res, function (err, result) {
             if (result.affectedRows > 0) {
                 res.send("<script>alert('发布成功！');location.href = '/publishcard';</script>");
