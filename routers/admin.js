@@ -131,5 +131,9 @@ router.use('/comment', commentRouter);//当访问/type时，匹配typeRouter里�
 let systemRouter = require('./admin/system');
 router.use('/system', systemRouter);
 
+//校卡管理
+let cardRouter = require("./admin/card.js");
+router.use("/card", cardRouter);
+
 
 module.exports = router;
