@@ -1,10 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= webConfig.title%></title>
+    <meta name="keywords" content="<%= webConfig.keywords%>">
+    <meta name="description" content="<%= webConfig.description%>">
+    <link rel="stylesheet" type="text/css" href="public/home/css/bootstrap.min.css">
+
+
+    <script src="public/home/js/jquery-2.1.4.min.js"></script>
+
+    <style type="text/css">
+        html,body {
+            position: relative;
+            background: #5aa5e5;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .thumbur {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FFEFEFEF', endColorstr='#FFE1E1E1');
+            background-size: 100%;
+            margin: -20px auto auto;
+            border-radius: 100%;
+        }
+
+        .panel-lite {
+            margin: 20px auto;
+            max-width: 360px;
+            background: #fff;
+            padding: 45px 20px;
+            border-radius: 4px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .panel-lite h4 {
+            font-weight: 600;
+            font-size: 24px;
+            text-align: center;
+            color: #4e88be;
+            margin: 15px auto;
+        }
+
+        .panel-lite a {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            color: #5aa5e5;
+            font-size: 14px;
+        }
+
+        .form-group {
+            position: relative;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .form-group + .form-group {
+            margin-top: 30px;
+        }
+
+        .form-group .form-label {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 5px;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+        .form-group .form-control {
+            width: 100%;
+            position: relative;
+            z-index: 3;
+            height: 35px;
+            background: none;
+            border: none;
+            padding: 5px 0;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+            border-bottom: 1px solid #777;
+        }
+
+        .form-group .form-control:invalid {
+            outline: none;
+        }
+
+        .form-group .form-control:focus, .form-group .form-control:valid {
+            outline: none;
+            color: #5aa5e5;
+            box-shadow: 0 1px #5aa5e5;
+            border-color: #5aa5e5;
+        }
+
+        .form-group .form-control:focus + .form-label, .form-group .form-control:valid + .form-label {
+            font-size: 12px;
+            -ms-transform: translateY(-15px);
+            -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+        }
+
+        .floating-btn {
+            background: #5aa5e5;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 32px;
+            border: none;
+            position: absolute;
+            margin: auto;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+            box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.3) inset;
+            margin: auto;
+            right: -40px;
+            bottom: 90px;
+            cursor: pointer;
+        }
+
+        .floating-btn:hover {
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.3) inset, 0 3px 6px rgba(0, 0, 0, 0.16), 0 5px 11px rgba(0, 0, 0, 0.23);
+        }
+
+        .floating-btn:hover .icon-arrow {
+            -ms-transform: rotate(45deg) scale(1.2);
+            -webkit-transform: rotate(45deg) scale(1.2);
+            transform: rotate(45deg) scale(1.2);
+        }
+
+        .floating-btn:focus, .floating-btn:active {
+            outline: none;
+        }
+
+        .icon-arrow {
+            position: relative;
+            width: 13px;
+            height: 13px;
+            border-right: 3px solid #fff;
+            border-top: 3px solid #fff;
+            display: block;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            margin: auto;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+        .icon-arrow:after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 3px;
+            background: #fff;
+            left: -5px;
+            top: 5px;
+            -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .thumbur img {
+            width: 150px;
+            height: 150px;
+        }
+
+
+        /*table.gridtable {*/
+        /*    font-family: verdana, arial, sans-serif;*/
+        /*    font-size: 11px;*/
+        /*    color: #333333;*/
+        /*    border-width: 1px;*/
+        /*    border-color: #666666;*/
+        /*    border-collapse: collapse;*/
+        /*}*/
+
+        /*table.gridtable th {*/
+        /*    border-width: 1px;*/
+        /*    padding: 8px;*/
+        /*    border-style: solid;*/
+        /*    border-color: #666666;*/
+        /*    background-color: #dedede;*/
+        /*}*/
+
+        /*table.gridtable td {*/
+        /*    border-width: 1px;*/
+        /*    padding: 8px;*/
+        /*    border-style: solid;*/
+        /*    border-color: #666666;*/
+        /*    background-color: #ffffff;*/
+        /*}*/
+
+    </style>
+    <script>
+        $(function () {
+            $('#back').click(function () {
+                window.location.href = '/';
+            });
+        });
+    </script>
 </head>
 <body>
+<div class="container" style="margin-top: 5%;">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="panel-lite">
+                <div class="thumbur">
+                    <img src="<%= userAvatar%>"/>
+                </div>
+                <h4 style="margin-bottom: 30px;"><%= loginUser%></h4>
+                <div class="form-group">
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                            <th>
+                                姓名
+                            </th>
+                            <th>
+                                学院
+                            </th>
+                            <th>
+                                地点
+                            </th>
+                            <th>
+                                日期
+                            </th>
+                            <th>
+                                删除
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                蔡徐坤
+                            </td>
+                            <td>
+                                运动休闲学院
+                            </td>
+                            <td>
+                                图书馆
+                            </td>
+                            <td>
+                                12-18
+                            </td>
+                            <td>
+                                确定
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                蔡徐坤
+                            </td>
+                            <td>
+                                运动休闲学院
+                            </td>
+                            <td>
+                                图书馆
+                            </td>
+                            <td>
+                                12-18
+                            </td>
+                            <td>
+                                确定
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                蔡徐坤
+                            </td>
+                            <td>
+                                运动休闲学院
+                            </td>
+                            <td>
+                                图书馆
+                            </td>
+                            <td>
+                                12-18
+                            </td>
+                            <td>
+                                确定
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
 
+                </div>
+                <div class="form-group">
+
+                </div>
+                <button class="floating-btn" id="back"><i class="icon-arrow"></i></button>
+
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+
+
 </html>
