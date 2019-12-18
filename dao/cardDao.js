@@ -6,7 +6,7 @@ const moment = require("moment");
 
 module.exports = {
     addCard: function (params, req, res, callback) {
-        console.log(params)
+        // console.log(params)
         pool.getConnection(function (err, conn) {
             var sql = "insert into card(stu_no,stu_name,stu_school,lost_location,publish_id,publish_time,contact) values(?,?,?,?,?,?,?)";
             conn.query(sql, params, function (err, result) {
@@ -98,15 +98,15 @@ module.exports = {
                 console.log('-------------------------------------------------------------------------------------------------------\n');
                 // callback(err, JSON.stringify(result));
                 data = ' <div class="modal-header" style="border: none;padding: 10px;">\n' +
-                            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;\n</button>\n' +
-                        '</div>\n' +
-                        '<div class="modal-body" style="margin:0 25px 10px 25px;padding-top:0;">' +
-                            "<h3>学号：" + result[0].stu_no + "</h3>" +
-                            "<h3>姓名：" + result[0].stu_name + "</h3>" +
-                            "<h3>学院：" + result[0].stu_school + "</h3>" +
-                            "<h3>丢失地点：" + result[0].lost_location + "</h3>" +
-                            "<h3>联系方式：" + result[0].contact + "</h3>" +
-                        "</div>";
+                    '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;\n</button>\n' +
+                    '</div>\n' +
+                    '<div class="modal-body" style="margin:0 25px 10px 25px;padding-top:0;">' +
+                    "<h3>学号：" + result[0].stu_no + "</h3>" +
+                    "<h3>姓名：" + result[0].stu_name + "</h3>" +
+                    "<h3>学院：" + result[0].stu_school + "</h3>" +
+                    "<h3>丢失地点：" + result[0].lost_location + "</h3>" +
+                    "<h3>联系方式：" + result[0].contact + "</h3>" +
+                    "</div>";
                 // "<h3>" + "</h3>" +
 
                 callback(err, data);
@@ -114,4 +114,34 @@ module.exports = {
             })
         })
     },
+    getCenterCardList: function (username, req, res, callback) {
+        pool.getConnection(function (err,conn) {
+            var sql = "select * from card where publish_id=?";
+            conn.query(sql, username, function (err, result) {
+                if (err) {
+                    console.log("[SELECT ERROR] - ", err.message);
+                    return;
+                }
+                callback(err, result);
+                conn.release()
+            })
+        })
+    },
+    deleteCard: function (id, req, res, callback) {
+        pool.getConnection(function (err, conn) {
+            var sql = "delete from card where id=?";
+            conn.query(sql, id, function (err, result) {
+                if (err) {
+                    console.log("[DELETE ERROR] - ", err.message);
+                    return;
+                }
+                console.log('-----------------------DELETE-----------------------');
+                console.log('delete id:' + id + ' ------ DELETE affectedRows', result.affectedRows);
+                console.log('----------------------------------------------------\n\n');
+                callback(err, result);
+                conn.release();
+            })
+        })
+    }
+
 };

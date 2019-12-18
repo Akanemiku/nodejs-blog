@@ -21,6 +21,9 @@ const moment = require('moment');
 //载入MD5密码加密模块
 const crypto = require('crypto');
 
+//导入数据库操作模块
+const cardModel = require("../dao/cardDao");
+
 //设置文件上传
 const multer = require("multer");
 
@@ -76,12 +79,31 @@ router.get('/center', function (req, res, next) {
         var username = req.session.username;//获取学号
         var userAvatar = req.session.userAvatar;//获取用户头像
     }
-    res.render("home/center.html", {
-        webConfig: webConfig,
-        loginUser: loginUser,
-        userAvatar: userAvatar,
-        username:username
+    cardModel.getCenterCardList(req.session.username, req, res, function (err, result) {
+        // console.log(result)
+        res.render("home/center.html", {
+            webConfig: webConfig,
+            loginUser: loginUser,
+            userAvatar: userAvatar,
+            username: username,
+            result: result,
+            moment:moment
+        });
     });
+
+});
+
+router.post("/deleteCardById", function (req, res) {
+    var id = req.body.id;
+    // console.log("delete id:" + id);
+    cardModel.deleteCard(id, req, res, function (err, result) {
+        if(result.affectedRows > 0){
+            res.end(JSON.stringify({success:true}))
+        }else{
+            res.end(JSON.stringify({success:false}))
+        }
+    })
+
 });
 
 
@@ -227,7 +249,7 @@ router.get('/news', function (req, res, next) {
 
 router.post('/login', function (req, res, next) {
     console.log(req.body);
-    if(req.body.username=='0000'&&req.body.password=='12345678'){
+    if (req.body.username == '0000' && req.body.password == '12345678') {
         req.session.isLogin = true;
         req.session.homeUsername = '管理员';
         req.session.userAvatar = '/upload/avatar/a.png';
@@ -238,7 +260,7 @@ router.post('/login', function (req, res, next) {
             username: req.session.homeUsername,
             userAvatar: req.session.userAvatar
         });
-    }else{
+    } else {
         requessst.post({
                 url: 'http://47.98.154.117/doLogin',
                 form: {username: req.body.username, password: req.body.password}
