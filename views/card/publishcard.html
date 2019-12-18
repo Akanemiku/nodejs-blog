@@ -321,10 +321,10 @@
     var time = new Date();
     $(document).ready(function () {
 
+        //将日期自动选择在今天
         time.getFullYear(); //获取完整的年份(4位,1970-???)
         time.getMonth(); //获取当前月份(0-11,0代表1月)
         time.getDate(); //获取当前日(1-31)
-
         $('#selectTime').flatpickr({
             format: 'YYYY-MM-DD',
             // locale: moment.locale('zh-cn'),

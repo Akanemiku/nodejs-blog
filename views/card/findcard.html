@@ -408,6 +408,31 @@
         $("#selectLocation").append("<option value='" + value + "'>" + value + "</option>")
     }
 
+    //删除数组中指定元素
+    function removeByValue(arr, val) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] == val) {
+                arr.splice(i, 1);
+                break;
+            }
+        }
+    }
+
+    function deleteSchool(index) {
+        // alert(index)
+        $("#school" + index).remove();
+        console.log("chools[index]:" + schools[index])
+        removeByValue(searchSchoolText, schools[index])
+        getMsg(pageNum);
+    }
+
+    function deleteLocation(index) {
+        $("#location" + index).remove();
+        console.log("chools[index]:" + locations[index])
+        removeByValue(searchLocationText, locations[index])
+        getMsg(pageNum);
+    }
+
     $(document).ready(function () {
 
         $("#detailModal").on("hidden.bs.modal", function () {
@@ -433,15 +458,9 @@
             var locationVal = $("#selectLocation").val();
             if (searchLocationText.indexOf(locationVal) === -1) {
                 // addLocationLabel($("#selectLocation").val());
-                var newElement = "<span class='locationlabel'><span>" + locationVal + "</span><a href='#' style='color: white;' class='delete'><img src='/public/card/icon/delete.png' class='deleteImg'></a></span>";
+                var index = locations.indexOf(locationVal);
+                var newElement = "<span class='locationlabel' id='location" + index + "'><span>" + locationVal + "</span><span onclick='deleteLocation(" + index +")' style='color: white;cursor: pointer;'><img src='/public/card/icon/delete.png' class='deleteImg'></span></span>";
                 $(".mylabel").append(newElement);
-                $(".delete").click(function () {
-                    $(this).parent().remove();
-                    alert(1);
-                    searchLocationText.remove(locationVal)
-                    getMsg(pageNum);
-                });
-
                 searchLocationText.push(locationVal);
                 getMsg(pageNum);
             } else {
@@ -453,12 +472,14 @@
         $('#selectSchool').change(function () {
             var schoolVal = $("#selectSchool").val();
             if (searchSchoolText.indexOf(schoolVal) === -1) {
-                $(".mylabel").append("<span class='schoollabel'><span>" + schoolVal + "</span><a href='#' style='color: white;' class='delete'><img src='/public/card/icon/delete.png' class='deleteImg'></a></span>");
-                $(".delete").click(function () {
-                    $(this).parent().remove();
-                    searchSchoolText.remove(schoolVal)
-                    getMsg(pageNum);
-                });
+                var index = schools.indexOf(schoolVal);
+                var newElement = "<span class='schoollabel' id='school" + index + "'><span>" + schoolVal + "</span><span onclick='deleteSchool(" + index + ")' style='color: white;cursor:pointer;'><img src='/public/card/icon/delete.png' class='deleteImg'><span/></span>";
+                $(".mylabel").append(newElement);
+                // $(".delete").click(function () {
+                //     $(this).parent().remove();
+                //     searchSchoolText.remove(schoolVal)
+                //     getMsg(pageNum);
+                // });
                 searchSchoolText.push(schoolVal);
                 getMsg(pageNum);
             } else {
@@ -467,9 +488,11 @@
 
         });
 
+
         $("#deleteAllLabel").click(function () {
             searchLocationText = [];
             searchSchoolText = [];
+            $('#search').val('')
             $('.mylabel').empty('.schoollabel');
             getMsg(pageNum);
         });
@@ -511,6 +534,7 @@
             });
         });
 
+
         function addLocationLabel(name) {
             $(".mylabel").append("<span class='locationlabel'><span>" + name + "</span><a href='#' style='color: white;' class='delete'><img src='/public/card/icon/delete.png' class='deleteImg'></a></span>");
             $(".delete").click(function () {
@@ -528,8 +552,9 @@
     });
 
     function getMsg(num) {
-        console.log(searchSchoolText)
-        console.log(searchLocationText)
+        console.log("searchSchoolText:" + searchSchoolText)
+        console.log("searchLocationText:" + searchLocationText)
+        console.log("seachText:" + $('#search').val())
         $.ajax({
             url: '/getcardlist',
             type: 'GET',
