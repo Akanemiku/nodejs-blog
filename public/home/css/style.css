@@ -185,9 +185,7 @@ color:#FFF;
 	margin: 0 15px;
 }
 }
-/*头部*/
-/* .header {
-} */
+
 /*导航顶部*/
 .header .dropdown img{
 	width: 45px ;
@@ -328,142 +326,7 @@ color:#FFF;
 	color: #3399CC;
 	background: none;
 }
-/*导航菜单划过效果*/
-.navbar-nav li a:after {
-	content: '';
-	width: 5px;
-	height: 100px;
-	background-color: #3399CC;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
-	-webkit-transform: rotate(45deg) translate(0%, 0%);
-	-moz-transform: rotate(45deg) translate(0%, 0%);
-	-ms-transform: rotate(45deg) translate(0%, 0%);
-	-o-transform: rotate(45deg) translate(0%, 0%);
-	transform: rotate(45deg) translate(0%, 0%);
-	-webkit-transform-origin: 100% 50%;
-	-moz-transform-origin: 100% 50%;
-	-ms-transform-origin: 100% 50%;
-	-o-transform-origin: 100% 50%;
-	transform-origin: 100% 50%;
-	position: absolute;
-	top: 50px;
-	left: 35px;
-	margin-left: 50px;
-	margin-top: -110px;
-	opacity: 0;
-	-webkit-opacity: 0;
-	-moz-opacity: 0;
-}
-.navbar-nav li a:hover:after {
-	-webkit-animation: comets 0.5s forwards;
-	-moz-animation: comets 0.5s forwards;
-	-ms-animation: comets 0.5s forwards;
-	animation: comets 0.5s forwards;
-}
-@-moz-keyframes comets {
- 0% {
- width: 0;
- opacity: 0;
- -webkit-opacity: 0;
- -moz-opacity: 0;
- -webkit-transform: rotate(45deg) translate(-20%, -100%);
- -moz-transform: rotate(45deg) translate(-20%, -100%);
- -ms-transform: rotate(45deg) translate(-20%, -100%);
- -o-transform: rotate(45deg) translate(-20%, -100%);
- transform: rotate(45deg) translate(-20%, -100%);
-}
- 50% {
- width: 2px;
- opacity: 1;
- -webkit-opacity: 1;
- -moz-opacity: 1;
-}
- 100% {
- width: 0%;
- opacity: 0;
- -webkit-opacity: 0;
- -moz-opacity: 0;
- -webkit-transform: rotate(45deg) translate(20%, 100%);
- -moz-transform: rotate(45deg) translate(20%, 100%);
- -ms-transform: rotate(45deg) translate(20%, 100%);
- -o-transform: rotate(45deg) translate(20%, 100%);
- transform: rotate(45deg) translate(20%, 100%);
-}
-}
-@-webkit-keyframes comets {
- 0% {
- width: 0;
- opacity: 0;
- -webkit-opacity: 0;
- -moz-opacity: 0;
- -webkit-transform: rotate(45deg) translate(-20%, -100%);
- -moz-transform: rotate(45deg) translate(-20%, -100%);
- -ms-transform: rotate(45deg) translate(-20%, -100%);
- -o-transform: rotate(45deg) translate(-20%, -100%);
- transform: rotate(45deg) translate(-20%, -100%);
-}
- 50% {
- width: 2px;
- opacity: 1;
- -webkit-opacity: 1;
- -moz-opacity: 1;
-}
- 100% {
- width: 0%;
- opacity: 0;
- -webkit-opacity: 0;
- -moz-opacity: 0;
- -webkit-transform: rotate(45deg) translate(20%, 100%);
- -moz-transform: rotate(45deg) translate(20%, 100%);
- -ms-transform: rotate(45deg) translate(20%, 100%);
- -o-transform: rotate(45deg) translate(20%, 100%);
- transform: rotate(45deg) translate(20%, 100%);
-}
-}
-@keyframes comets {
- 0% {
- width: 0;
- opacity: 0;
- -webkit-opacity: 0;
- -moz-opacity: 0;
- -webkit-transform: rotate(45deg) translate(-20%, -100%);
- -moz-transform: rotate(45deg) translate(-20%, -100%);
- -ms-transform: rotate(45deg) translate(-20%, -100%);
- -o-transform: rotate(45deg) translate(-20%, -100%);
- transform: rotate(45deg) translate(-20%, -100%);
-}
- 50% {
- width: 2px;
- opacity: 1;
- -webkit-opacity: 1;
- -moz-opacity: 1;
-}
- 100% {
- width: 0%;
- opacity: 0;
- -webkit-opacity: 0;
- -moz-opacity: 0;
- -webkit-transform: rotate(45deg) translate(20%, 100%);
- -moz-transform: rotate(45deg) translate(20%, 100%);
- -ms-transform: rotate(45deg) translate(20%, 100%);
- -o-transform: rotate(45deg) translate(20%, 100%);
- transform: rotate(45deg) translate(20%, 100%);
-}
-}
 
-@media (max-width: 800px) {
-.hidden-index {
-	display: none !important;
-}
-}
-
-@media (max-width: 768px) {
-.navbar-nav {
-	overflow: hidden;
-}
-}
 /*内容*/
 .content-wrap {
 	width: 100%;
