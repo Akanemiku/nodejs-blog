@@ -12,13 +12,12 @@
 	<script src="/public/admin/js/jquery.js"></script>
 	<script src="/public/admin/js/pintuer.js"></script>
 </head>
-
 <body>
-	<div class="panel admin-panel">
-		<div class="panel-head"><strong class="icon-reorder"> 管理员列表</strong> <a href=""
-				style="float:right; display:none;">添加字段</a></div>
+<% include ../common/nav.html %>
+<div class="panel admin-panel">
+		<div class="panel-head"><strong class="icon-reorder"> 管理员列表</strong></div>
 		<div class="padding border-bottom">
-			<ul class="search" style="padding-left:10px;">
+			<ul class="search" style="padding-left:1px;">
 				<li> <a class="button border-main icon-plus-square-o" href="/admin/admin/add"> 添加管理员</a> </li>
 				<li>
 					<form action="" method="get">
@@ -29,7 +28,7 @@
 				</li>
 			</ul>
 		</div>
-		<table class="table table-hover text-center">
+		<table class="table table-hover text-center table-bordered">
 			<tr>
 				<th width="100" style="text-align:left; padding-left:20px;">ID</th>
 				<th>用户名</th>

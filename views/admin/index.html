@@ -9,67 +9,62 @@
     <link rel="stylesheet" href="public/admin/css/pintuer.css">
     <link rel="stylesheet" href="public/admin/css/admin.css">
     <script src="public/admin/js/jquery.js"></script>
+    <style type="text/css">
+        .listicon {
+            padding: 8%;
+            text-align: center;
+            background: #f5f5f5;
+        }
+
+        .listicon span {
+            display: block;
+            font-size: 50px;
+        }
+
+        .listicon strong {
+            display: block;
+            margin-top: 5px;
+            font-size: 18px;
+        }
+
+        .grid-small .space {
+            padding: 3px;
+        }
+
+        .listicon:hover {
+            background: #fc5741;
+            color: #fff;
+        }
+    </style>
 </head>
 
-<body style="background-color:#f2f9fd;">
-<div class="header bg-main">
-    <div class="logo margin-big-left fadein-top">
-        <h1><img src="public/admin/images/y.jpg" class="radius-circle rotate-hover" height="50" alt=""/>后台管理中心</h1>
-    </div>
-    <div class="head-l">
-        <a class="button button-little bg-green" href="/" target="_blank">
-            <span class="icon-home"></span> 前台首页</a> &nbsp;&nbsp;
-<!--        <a href="##" class="button button-little bg-blue">-->
-<!--            <span class="icon-wrench"></span>清除缓存</a> &nbsp;&nbsp;-->
-        <a class="button button-little bg-red" href="/admin/logout">
-            <span class="icon-power-off"></span> 退出登录</a>
-    </div>
-</div>
-<div class="leftnav">
-    <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
-    <h2><span class="icon-user"></span>用户管理</h2>
-    <ul>
-        <!-- .icon-caret-right:before{content:"\f0da";} -->
-        <li><a href="/admin/admin" target="right"><span class="icon-caret-right"></span>管理员管理</a></li>
-        <li><a href="/admin/user" target="right"><span class="icon-caret-right"></span>用户管理</a></li>
-    </ul>
+<body>
 
-    <h2><span class="icon-pencil-square-o" target="right"></span>文章管理</h2>
-    <ul>
-        <!-- 链接执向的是访问的地址 -->
-        <li><a href="/admin/newstype" target="right"><span class="icon-caret-right"></span>文章分类管理</a></li>
-        <li><a href="/admin/news" target="right"><span class="icon-caret-right"></span>文章管理</a></li>
-        <li><a href="/admin/comment" target="right"><span class="icon-caret-right"></span>评论管理</a></li>
-    </ul>
+<% include common/nav.html %>
 
-    <h2><span class="icon-hdd-o"></span>系统管理</h2>
-    <ul>
-        <li><a href="/admin/slider" target="right"><span class="icon-caret-right"></span>轮播图管理</a></li>
-        <li><a href="/admin/system" target="right"><span class="icon-caret-right"></span>系统管理</a></li>
-    </ul>
+<div class="container" style="margin-top: 50px;">
+    <div class="grid-small">
+        <div class="space xs6 xm3">
+            <div class="listicon"><a href="/admin/admin">
+                <span class="icon-user"></span><strong>管理员管理</strong></a>
+            </div>
+        </div>
+        <div class="space xs6 xm3">
+            <div class="listicon"><a href="/admin/news">
+                <span class="icon-pencil-square-o"></span><strong>文章管理</strong></a>
+            </div>
+        </div>
+        <div class="space xs6 xm3">
+            <div class="listicon"><a href="/admin/comment">
+                <span class="icon-file-word-o"></span><strong>评论管理</strong></a></div>
+        </div>
+        <div class="space xs6 xm3">
+            <div class="listicon"><a href="/admin/system">
+                <span class="icon-cog"></span><strong>系统管理</strong></a></div>
+        </div>
+    </div>
 </div>
-<script type="text/javascript">
-    $(function () {
-        $(".leftnav h2").click(function () {
-            $(this).next().slideToggle(200);
-            $(this).toggleClass("on");
-        })
-        $(".leftnav ul li a").click(function () {
-            $("#a_leader_txt").text($(this).text());
-            $(".leftnav ul li a").removeClass("on");
-            $(this).addClass("on");
-        })
-    });
-</script>
-<ul class="bread">
-    <li><a href="#" target="right" class="icon-home"> 首页</a></li>
-    <li><a href="#" id="a_leader_txt">网站信息</a></li>
-    <!--    <li><b>当前语言：</b><span style="color:red;">中文</php></span>-->
-    <!--      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a> </li>-->
-</ul>
-<div class="admin">
-    <iframe scrolling="auto" rameborder="0" src="admin/welcome" name="right" width="100%" height="100%"></iframe>
-</div>
+
 
 </body>
 </html>

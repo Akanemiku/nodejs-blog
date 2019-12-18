@@ -237,10 +237,10 @@ ul, li {
     margin-left: 10px;
 }
 
-.bread {
-    margin-left: 190px;
-    margin-top: 4px;
-}
+/*.bread {*/
+/*    margin-left: 190px;*/
+/*    margin-top: 4px;*/
+/*}*/
 
 .bread li {
     float: left;
@@ -309,16 +309,16 @@ ul, li {
 }
 
 .pagelist span.current {
-    background: #09F;
-    color: #FFF;
-    border-color: #09F;
+    background: #fff;
+    color: #000;
+    border-color: #000;
     margin: 0 2px;
 }
 
 .pagelist a:hover {
-    background: #09F;
-    color: #FFF;
-    border-color: #09F;
+    background: #2e2e2e;
+    color: #fff;
+    border-color: #2e2e2e;
 }
 
 .pagelist label {
@@ -347,7 +347,9 @@ ul, li {
 }
 
 .button.bg-main.icon-check-square-o:hover {
-    background: #08bbe1;
+    color: #000;
+    border-color: #000;
+    background: #fff;
 }
 
 input[type="checkbox"], input[type="radio"] {
