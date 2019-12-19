@@ -66,12 +66,16 @@ const adminRouter = require("./routers/admin");
 //导入card路由
 const cardRouter = require("./routers/card");
 
+//导入center路由
+const centerRouter = require("./routers/center");
+
 // 使用前台的路由
 // 参数1：匹配的路由规则
 // 参数2:请求路由规则
 app.use('/',indexRouter);
 app.use('/admin',adminRouter);
 app.use('/',cardRouter);
+app.use('/',centerRouter);
 
 //加载ueditor 模块
 var ueditor = require("ueditor");

@@ -4,7 +4,7 @@
 const express = require("express");
 
 //导入request
-const requessst = require('request');
+const request = require('request');
 
 // 实例化路由类
 const router = express.Router();
@@ -68,8 +68,19 @@ router.get('/findcard', function (req, res, next) {
     });
 });
 
+
 //个人中心
 router.get('/center', function (req, res, next) {
+    // console.log(req.query.p)
+    // const p = req.query.p === undefined;
+    // if(p){
+    //
+    // }else{
+    //     request("card_management?p" + p, function () {
+    //
+    //     })
+    // }
+
     const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
     // 获取到的是一个buffer流，需要转换成json对象
     const webConfig = JSON.parse(webConfigData.toString());
@@ -78,29 +89,51 @@ router.get('/center', function (req, res, next) {
         var loginUser = req.session.homeUsername;//获取用户名
         var username = req.session.username;//获取学号
         var userAvatar = req.session.userAvatar;//获取用户头像
+        var lastLoginTime = moment(req.session.lastLoginTime * 1000).format("YYYY-MM-DD HH:mm:ss")
     }
-    cardModel.getCenterCardList(req.session.username, req, res, function (err, result) {
-        // console.log(result)
-        res.render("home/center.html", {
-            webConfig: webConfig,
-            loginUser: loginUser,
-            userAvatar: userAvatar,
-            username: username,
-            result: result,
-            moment:moment
-        });
+    res.render("center/center.html", {
+        webConfig: webConfig,
+        loginUser: loginUser,
+        userAvatar: userAvatar,
+        username: username,
+        lastLoginTime: lastLoginTime
     });
 
 });
+
+// //个人中心
+// router.get('/center', function (req, res, next) {
+//     const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
+//     // 获取到的是一个buffer流，需要转换成json对象
+//     const webConfig = JSON.parse(webConfigData.toString());
+//
+//     if (req.session.isLogin && req.session.homeUsername && req.session.userAvatar) {
+//         var loginUser = req.session.homeUsername;//获取用户名
+//         var username = req.session.username;//获取学号
+//         var userAvatar = req.session.userAvatar;//获取用户头像
+//     }
+//     cardModel.getCenterCardList(req.session.username, req, res, function (err, result) {
+//         // console.log(result)
+//         res.render("home/center.html", {
+//             webConfig: webConfig,
+//             loginUser: loginUser,
+//             userAvatar: userAvatar,
+//             username: username,
+//             result: result,
+//             moment:moment
+//         });
+//     });
+//
+// });
 
 router.post("/deleteCardById", function (req, res) {
     var id = req.body.id;
     // console.log("delete id:" + id);
     cardModel.deleteCard(id, req, res, function (err, result) {
-        if(result.affectedRows > 0){
-            res.end(JSON.stringify({success:true}))
-        }else{
-            res.end(JSON.stringify({success:false}))
+        if (result.affectedRows > 0) {
+            res.end(JSON.stringify({success: true}))
+        } else {
+            res.end(JSON.stringify({success: false}))
         }
     })
 
@@ -249,17 +282,25 @@ router.get('/news', function (req, res, next) {
 
 router.post('/login', function (req, res, next) {
     console.log(req.body);
-    if (req.body.username == '0000' && req.body.password == '12345678') {
-        req.session.isLogin = true;
-        req.session.homeUsername = '管理员';
-        req.session.userAvatar = '/upload/avatar/a.png';
-        req.session.username = '0000';
-        res.send({
-            ok: true,
-            msg: " 欢迎回来",
-            username: req.session.homeUsername,
-            userAvatar: req.session.userAvatar
-        });
+    var loginTime = Date.parse(new Date()) / 1000;
+    if (req.body.username == '0' && req.body.password == '0') {
+        mysql.query("update user set last_login_time=? where username=?", [loginTime, req.body.username], function (err, result) {
+            if (err) {
+                console.log("err:" + err.message);
+            } else {
+                req.session.isLogin = true;
+                req.session.homeUsername = '管理员';
+                req.session.userAvatar = '/upload/avatar/a.png';
+                req.session.username = '0';
+                req.session.lastLoginTime = loginTime;
+                res.send({
+                    ok: true,
+                    msg: " 欢迎回来",
+                    username: req.session.homeUsername,
+                    userAvatar: req.session.userAvatar
+                });
+            }
+        })
     } else {
         requessst.post({
                 url: 'http://47.98.154.117/doLogin',
@@ -275,12 +316,13 @@ router.post('/login', function (req, res, next) {
                     mysql.query("select * from user where username = ?", [username], function (err, data) {
                         if (data[0] == undefined) {
                             console.log('无');
-                            const time = (Math.round(new Date().getTime()) / 1000);//秒时间戳，需要转换成毫秒
+                            const time = loginTime;//秒时间戳，需要转换成毫秒
                             const arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+                            const last_login_time = loginTime;
 
                             const avatar = '/upload/avatar/' + arr[Math.floor(Math.random() * (7))] + '.png';
                             // 执行数据库增加操作
-                            mysql.query("insert into user(username,password,status,time,avatar,name) value(?,?,?,?,?,?)", [username, password, 0, time, avatar, name], function (err, data2) {
+                            mysql.query("insert into user(username,password,status,time,avatar,name,last_login_time) value(?,?,?,?,?,?,?)", [username, password, 0, time, avatar, name, last_login_time], function (err, data2) {
                                 if (err) {
                                     console.log(err);
                                 } else {
@@ -290,11 +332,13 @@ router.post('/login', function (req, res, next) {
                                         req.session.homeUsername = name;
                                         req.session.userAvatar = avatar;
                                         req.session.username = username;
+                                        req.session.lastLoginTime = loginTime;
                                         res.send({
                                             ok: true,
                                             msg: " 欢迎回来",
                                             username: req.session.homeUsername,
-                                            userAvatar: req.session.userAvatar
+                                            userAvatar: req.session.userAvatar,
+                                            lastLoginTime: req.session.lastLoginTime
                                         });
                                     } else {
                                         res.send({ok: false, msg: "登录失败！"});
@@ -314,17 +358,28 @@ router.post('/login', function (req, res, next) {
                                         if (req.session.isLogin && req.session.homeUsername) {
                                             res.send({ok: false, msg: "您已登录！！！"});
                                         } else {
-                                            req.session.isLogin = true;
-                                            req.session.homeUsername = data[0].name;
-                                            req.session.userAvatar = data[0].avatar;
-                                            req.session.username = data[0].username;
-                                            res.send({
-                                                ok: true,
-                                                msg: " 欢迎回来",
-                                                username: req.session.homeUsername,
-                                                userAvatar: req.session.userAvatar
-                                            });
+                                            mysql.query("update user set last_login_time=? where username=?", [loginTime, data[0].username], function (err, result) {
+                                                if (err) {
+                                                    console.log("err:" + err.message);
+                                                } else {
+                                                    req.session.isLogin = true;
+                                                    req.session.homeUsername = data[0].name;
+                                                    req.session.userAvatar = data[0].avatar;
+                                                    req.session.username = data[0].username;
+                                                    req.session.lastLoginTime = loginTime;
+                                                    res.send({
+                                                        ok: true,
+                                                        msg: " 欢迎回来",
+                                                        username: req.session.homeUsername,
+                                                        userAvatar: req.session.userAvatar,
+                                                        lastLoginTime: req.session.lastLoginTime
+                                                    });
+                                                }
+                                            })
+
                                         }
+
+
                                     } else {
                                         res.send({ok: false, msg: "登录失败！"});
                                     }

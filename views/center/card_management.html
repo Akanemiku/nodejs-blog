@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/admin/css/admin.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-sm-12 column panel-body" style="padding-top: 10%;font-size: x-large;">
+            <table class="table table-hover text-center table-bordered">
+                <tr>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>学院</th>
+                    <th>丢失地点</th>
+                    <th>发布时间</th>
+                    <th>联系方式</th>
+                    <th width="310">操作</th>
+                </tr>
+                <% data.forEach(item=>{%>
+                <tr id="tr<%= item.id %>">
+                    <td><%= item.stu_no %></td>
+                    <td><%= item.stu_name %></td>
+                    <td><%= item.stu_school %></td>
+                    <td><%= item.lost_location %></td>
+                    <td><%= item.publish_time %></td>
+                    <td><%= item.contact %></td>
+                    <td>
+                        <div class="button-group">
+                            <a class="button border-red" href="javascript:void(0)"
+                               onclick="del(this,`<%= item.id %>`)"><span
+                                    class="icon-trash-o"></span> 删除</a>
+                        </div>
+                    </td>
+                </tr>
+
+                <%})%>
+
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    /*
+           * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
+           * （实现左侧菜单中的标签点击后变色的效果）
+           */
+    $(document).ready(function () {
+        $('#menulist> a').click(function (e) {
+            //e.preventDefault();    加上这句则导航的<a>标签会失效
+            $('#menulist> a').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+
+    function loadPage(url) {
+        $.get(url, function (data, status) {
+            $("#right").html(data);
+        });
+    }
+
+    function del(obj, id) {
+        if (confirm("您确认要删除吗？")) {
+            $.post("/deleteCardById", {id: id}, function (data) {
+                result = JSON.parse(data)
+                if(result.success == true){
+                    $('#tr' + id).remove()
+                    alert("删除成功")
+                }else{
+                    alert("删除失败")
+                }
+            })
+        }
+    }
+</script>
+</html>
