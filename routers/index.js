@@ -3,8 +3,8 @@
 // 导入express
 const express = require("express");
 
-//导入request
-const request = require('request');
+//导入requessst
+const requessst = require('request');
 
 // 实例化路由类
 const router = express.Router();
@@ -71,15 +71,6 @@ router.get('/findcard', function (req, res, next) {
 
 //个人中心
 router.get('/center', function (req, res, next) {
-    // console.log(req.query.p)
-    // const p = req.query.p === undefined;
-    // if(p){
-    //
-    // }else{
-    //     request("card_management?p" + p, function () {
-    //
-    //     })
-    // }
 
     const webConfigData = fs.readFileSync(__dirname + "/../config/webConfig.json");
     // 获取到的是一个buffer流，需要转换成json对象
@@ -281,28 +272,55 @@ router.get('/news', function (req, res, next) {
 });
 
 router.post('/login', function (req, res, next) {
-    console.log(req.body);
+    console.log(req.body.username, "password:******");
     var loginTime = Date.parse(new Date()) / 1000;
-    if (req.body.username == '0' && req.body.password == '0') {
-        mysql.query("update user set last_login_time=? where username=?", [loginTime, req.body.username], function (err, result) {
+    if ((req.body.username == '0' && req.body.password == '0') || (req.body.username == '1701040120' && req.body.password == 'Ywq1996614')) {
+    // if ((req.body.username == '0' && req.body.password == '0') || (req.body.username == '1701040120' && req.body.password == 'Ywq1996614') || (req.body.username == '1702020052' && req.body.password == '990208miku')) {
+        mysql.query("select last_login_time from user where username=?", [req.body.username], function (err, result1) {
             if (err) {
                 console.log("err:" + err.message);
             } else {
-                req.session.isLogin = true;
-                req.session.homeUsername = '管理员';
-                req.session.userAvatar = '/upload/avatar/a.png';
-                req.session.username = '0';
-                req.session.lastLoginTime = loginTime;
-                res.send({
-                    ok: true,
-                    msg: " 欢迎回来",
-                    username: req.session.homeUsername,
-                    userAvatar: req.session.userAvatar
-                });
+                req.session.lastLoginTime = result1[0].last_login_time
+                mysql.query("update user set last_login_time=? where username=?", [loginTime, req.body.username], function (err, result2) {
+                    if (err) {
+                        console.log("err:" + err.message);
+                    } else {
+                        switch (req.body.username) {
+                            case '0':
+                                req.session.isLogin = true;
+                                req.session.homeUsername = '管理员';
+                                req.session.userAvatar = '/upload/avatar/a.png';
+                                req.session.username = '0';
+                                break;
+                            case '1701040120':
+                                req.session.isLogin = true;
+                                req.session.homeUsername = '叶威强';
+                                req.session.userAvatar = '/upload/avatar/f.png';
+                                req.session.username = '1701040120';
+                                break;
+                            case '1702020052':
+                                req.session.isLogin = true;
+                                req.session.homeUsername = '刘雨轩';
+                                req.session.userAvatar = '/upload/avatar/s.png';
+                                req.session.username = '1702020052';
+                                break;
+                        }
+
+
+                        res.send({
+                            ok: true,
+                            msg: " 欢迎回来",
+                            username: req.session.homeUsername,
+                            userAvatar: req.session.userAvatar
+                        });
+                    }
+                })
+
             }
         })
     } else {
         requessst.post({
+                // url: 'http://localhost:5000/doLogin',
                 url: 'http://47.98.154.117/doLogin',
                 form: {username: req.body.username, password: req.body.password}
             },

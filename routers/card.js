@@ -21,7 +21,7 @@ router.post('/publish_card', function (req, res, next) {
         var params = [stu_no, stu_name, stu_school, lost_location, req.session.username, publish_time, contact];
         cardModel.addCard(params, req, res, function (err, result) {
             if (result.affectedRows > 0) {
-                res.send("<script>alert('发布成功！');location.href = '/publishcard';</script>");
+                res.send("<script>alert('发布成功！');location.href = '/findcard';</script>");
             } else {
                 res.send("<script>alert('发布失败，请重新发布！');location.href = '/publishcard';</script>");
             }
