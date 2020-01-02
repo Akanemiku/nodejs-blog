@@ -85,7 +85,7 @@ router.post("/add", upload.single("img"), function (req, res, next) {
     // 获取上传文件名的后缀
     let ext = path.extname(imgRes.originalname);  //例如：.png
     // 设置文件上传的指定目录
-    let newPath = "/upload/slider/" + newName + ext;
+    let newPath = "/photo/slider/" + newName + ext;
 
     // 进行文件拷贝
     let fileData = fs.readFileSync(tmpPath);//同步读取里面的文件内容

@@ -15,7 +15,7 @@ function uploads(imgRes,dir =''){
     // 获取上传文件名的后缀名
     let ext = path.extname(imgRes.originalname);  //例如：.png
     // 设置文件上传的指定目录
-    let newPath = "/upload/"+dir+"/"+newName+ext;
+    let newPath = "/photo/"+dir+"/"+newName+ext;
 
     // 进行文件拷贝
     let fileData = fs.readFileSync(tmpPath);//同步读取里面的文件内容

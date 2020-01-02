@@ -44,7 +44,7 @@ app.set("view engine","html");  // 设置解析模板文件类型：这里为htm
 
 // 设置静态资源的访问，便不会通过路由去寻找
 app.use("/public",express.static(__dirname+"/public"));
-app.use("/upload",express.static(__dirname+"/upload"));
+app.use("/photo",express.static(__dirname+"/photo"));
 app.use("/images",express.static(__dirname+"/images"));
 
 // 配置跨域问题
@@ -88,13 +88,13 @@ app.use("/public/baidu/ueditors", ueditor(path.join(__dirname, ''), function (re
  
         var imgname = req.ueditor.filename;
  
-        var img_url = '/images/ueditor/';
+        var img_url = '/photo/images/ueditor/';
         res.ue_up(img_url); //你只要输入要保存的地址 。保存操作交给ueditor来做
         res.setHeader('Content-Type', 'text/html');//IE8下载需要设置返回头尾text/html 不然json返回文件会被直接下载打开
     }
     //  客户端发起图片列表请求
     else if (req.query.action === 'listimage') {
-        var dir_url = '/images/ueditor/';
+        var dir_url = '/photo/images/ueditor/';
         res.ue_list(dir_url); // 客户端会列出 dir_url 目录下的所有图片
     }
     // 客户端发起其它请求

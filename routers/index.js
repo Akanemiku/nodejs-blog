@@ -289,19 +289,19 @@ router.post('/login', function (req, res, next) {
                             case '0':
                                 req.session.isLogin = true;
                                 req.session.homeUsername = '管理员';
-                                req.session.userAvatar = '/upload/avatar/a.png';
+                                req.session.userAvatar = '/photo/avatar/a.png';
                                 req.session.username = '0';
                                 break;
                             case '1701040120':
                                 req.session.isLogin = true;
                                 req.session.homeUsername = '叶威强';
-                                req.session.userAvatar = '/upload/avatar/f.png';
+                                req.session.userAvatar = '/photo/avatar/f.png';
                                 req.session.username = '1701040120';
                                 break;
                             case '1702020052':
                                 req.session.isLogin = true;
                                 req.session.homeUsername = '刘雨轩';
-                                req.session.userAvatar = '/upload/avatar/s.png';
+                                req.session.userAvatar = '/photo/avatar/s.png';
                                 req.session.username = '1702020052';
                                 break;
                         }
@@ -338,7 +338,7 @@ router.post('/login', function (req, res, next) {
                             const arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
                             const last_login_time = loginTime;
 
-                            const avatar = '/upload/avatar/' + arr[Math.floor(Math.random() * (7))] + '.png';
+                            const avatar = '/photo/avatar/' + arr[Math.floor(Math.random() * (7))] + '.png';
                             // 执行数据库增加操作
                             mysql.query("insert into user(username,password,status,time,avatar,name,last_login_time) value(?,?,?,?,?,?,?)", [username, password, 0, time, avatar, name, last_login_time], function (err, data2) {
                                 if (err) {
