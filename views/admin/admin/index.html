@@ -88,15 +88,10 @@
 
 		}
 
-		// 无刷新删除数据
 		function del(obj, id) {
-			// 确认框
 			if (confirm("您确认删除吗？")) {
-				// 发送ajax请求删除
 				$.get("/admin/admin/ajax_del", { id:id }, function (data) {
-					// 判断是否删除成功
 					if(data ==1){
-						// 移除显示的数据
 						$(obj).parents("tr").remove();
 					}else{
 						alert("删除失败");
@@ -105,7 +100,6 @@
 			}
 		}
 
-		// 
 	</script>
 </body>
 

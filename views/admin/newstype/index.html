@@ -62,15 +62,10 @@
 	</div>
 	</form>
 	<script>
-		// 无刷新删除数据
 		function del(obj, id) {
-			// 确认框
 			if (confirm("您确认删除吗？")) {
-				// 发送ajax请求删除
 				$.get("/admin/newstype/ajax_del", { id:id }, function (data) {
-					// 判断是否删除成功
 					if(data ==1){
-						// 移除显示的数据
 						$(obj).parents("tr").remove();
 						alert('删除成功');
 					}else{
@@ -80,11 +75,8 @@
 			}
 		}
 
-		// 无刷新改变排序
 		function changesort(obj,id){
-			// 获取排序框里面的数据
 			let sort = $(obj).val();
-			// 发送ajax请求执行修改操作
 			$.get("/admin/newstype/ajax_sort",{id:id,sort:sort},function(data){
 				if(data == 1){
 					window.location.reload();

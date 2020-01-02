@@ -133,7 +133,7 @@ body, input, button, textarea, select {
 @font-face {
 	font-family: 'TaurusNormal';
 	src: url('../fonts/TaurusNormal.woff') format('woff'),
-	 	 url('../fonts/TaurusNormal.ttf') format('truetype'), 
+	 	 url('../fonts/TaurusNormal.ttf') format('truetype'),
 	 	 url('../fonts/TaurusNormal.svg') format('svg');
 }
 /*禁止文字选中-无法复制*/
@@ -189,10 +189,10 @@ color:#FFF;
 /*导航顶部*/
 .header .dropdown img{
 	width: 45px ;
-	height:45px; 
+	height:45px;
 	margin-top: 5px;
 	border-radius: 50%;
-	margin-left: 10px; 
+	margin-left: 10px;
 	/*border: 1px solid #000;*/
 }
 .header-topbar {
@@ -1052,19 +1052,6 @@ color:#FFF;
 .comment-main span.address {
 	color: #3399CC;
 	margin: 0 5px;
-}
-.comment-main span.zan::before{
-	content: " ";
-	position: absolute;
-	right: 10px;
-	background: url('/public/home/images/zan.png') no-repeat center;
-	width: 22px;
-	height: 22px;
-	transition: all 0.2s ease-in-out;
-	margin: 0 5px;
-}
-.comment-main span.zaned::before{
-	background: url('/public/home/images/zaned.png') no-repeat center;
 }
 .comment-main span.zan{
 	float: right;

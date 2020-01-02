@@ -286,23 +286,7 @@
                         </tr>
                         <% }); %>
 
-                        <!--<tr>-->
-                        <!--<td>-->
-                        <!--蔡徐坤-->
-                        <!--</td>-->
-                        <!--<td>-->
-                        <!--运动休闲学院-->
-                        <!--</td>-->
-                        <!--<td>-->
-                        <!--图书馆-->
-                        <!--</td>-->
-                        <!--<td>-->
-                        <!--12-18-->
-                        <!--</td>-->
-                        <!--<td>-->
-                        <!--确定-->
-                        <!--</td>-->
-                        <!--</tr>-->
+
 
                         </tbody>
                     </table>
@@ -322,14 +306,12 @@
     var deleteId;
 
     function updateDeleteId(id) {
-        // console.log("id:" + id)
         deleteId = id;
     }
 
     $(document).ready(function () {
 
         $('#deleteConfirm').click(function () {
-            // alert(deleteId)
             $.post("/deleteCardById", {id: deleteId}, function (data, status) {
                 result = JSON.parse(data)
                 if(result.success == true){

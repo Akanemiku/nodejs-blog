@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="renderer" content="webkit">
-    <title>Bootstrap 布局实例</title>
+    <title>小北博客</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,14 +25,10 @@
                     <img src="<%= userAvatar%>" style="width: 40%;height: 40%"/>
                 </div>
                 <a href="#" class="list-group-item active" style="border: none;font-size: larger" onclick="loadPage('/person_info')">
-                    <!-- 小图标样式设置 -->
                     个人信息</a>
                 <a href="#" class="list-group-item" style="border: none;font-size: larger;" onclick="loadPage('/card_management')">
                     校卡管理 </a>
-                <!--<a href="#" class="list-group-item" onclick="loadPage('page3')">-->
-                    <!--用户管理</a>-->
-                <!--<a href="#" class="list-group-item">-->
-                    <!--菜单4</a>-->
+
             </div>
             <!--右边菜单栏-->
             <div class="col-sm-10" id="right">
@@ -47,13 +43,9 @@
 </div>
 </body>
 <script>
-    /*
-           * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
-           * （实现左侧菜单中的标签点击后变色的效果）
-           */
+
     $(document).ready(function () {
         $('#menulist> a').click(function (e) {
-            //e.preventDefault();    加上这句则导航的<a>标签会失效
             $('#menulist> a').removeClass('active');
             $(this).addClass('active');
         });

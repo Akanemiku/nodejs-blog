@@ -75,11 +75,8 @@
 </form>
 
 <script>
-    // 删除方法
     function del(obj, id, img) {
-        // 确认信息
         if (confirm('确认要删除这条数据吗？')) {
-            // 发送ajax请求删除数据
             $.get("/admin/slider/ajax_del", {id: id, img: img}, function (data) {
                 if (data == 1) {
                     $(obj).parent().parent().parent().remove(); //从a开始往上找父级tr并删除tr
@@ -89,13 +86,9 @@
         }
     }
 
-    // 无刷新更改状态
     function sorts(obj, id) {
-        // 获取排序框的内容
-        let sort = $(obj).val()
-        // 发送ajax请求进行数据修改
+        let sort = $(obj).val();
         $.get("/admin/slider/ajax_sort", {id, sort}, function (data) {
-            // 判断是否执行成功
             if (data == 1) {
                 window.location.reload();
             }
